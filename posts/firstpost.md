@@ -1,26 +1,14 @@
 ---
-title: This is my first post.
-description: This is a post on My Blog about agile frameworks.
-date: 2018-05-01
+title: One More Time
+description: An introduction and explanation for why this site exists.
+date: 2019-12-07 7:00:00.00
 tags:
-  - another-tag
+  - personal
 layout: layouts/post.njk
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+[nathanhumphrey.ca](https://nathanhumphrey.ca) will mark the third time I've tried to maintain an online written account of things that interest me. My previous attempts at blogging failed mostly due to two factors: my half-assed commitment to writing, and a large volume of higher-priority responsibilities (e.g. contract work, young children, completion of MBA, etc.). In short, I was spent.
 
-## Section Header
+This time around, my previous issues have mostly been resolved. Many of the extra life-happenings have slowed down or ended (e.g. MBA is complete, kids are growing up, contract work is not a priority). I've also made a personal commitment to writing for my own personal growth.
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
-
-``` text/2-3
-// this is a command
-function myCommand() {
-	let counter = 0;
-	counter++;
-}
-
-// Test with a line break above this line.
-console.log('Test');
-```
+Wish me luck!

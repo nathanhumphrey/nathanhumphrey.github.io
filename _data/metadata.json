@@ -1,16 +1,16 @@
 {
-  "title": "Your Blog Name",
-  "url": "https://myurl.com/",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "title": "Nathan Humphrey",
+  "url": "https://nathanhumphrey.ca/",
+  "description": "Education, software development, and continuous learning",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "Education, software development, and continuous learning",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "url": "https://myurl.com/feed/feed.xml",
-    "id": "https://myurl.com/"
+    "url": "https://nathanhumphrey.ca/feed/feed.xml",
+    "id": "https://nathanhumphrey.ca/"
   },
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com"
+    "name": "Nathan Humphrey",
+    "email": "nathanhumphrey@hotmail.com"
   }
 }

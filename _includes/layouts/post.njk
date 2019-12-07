@@ -2,8 +2,18 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
+<p class="meta"><time datetime="{{page.date.toISOString()}}">{{page.date.toLocaleDateString()}}</time>
 <h1>{{ title }}</h1>
-
+<div class="tags">
+{% for tag in tags %}
+    {%- if tag != "posts" -%}
+    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
+    {%- endif -%}
+{% endfor %}
+</div>
 {{ content | safe }}
 
-<p><a href="{{ '/' | url }}">← Home</a></p>
+<p>
+    <a href="{{ '#top' | url }}">Top</a>
+</p>
