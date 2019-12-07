@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/posts/firstpost/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/about/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/posts/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/page-list/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/tags/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/tags/personal/</loc>
+    <lastmod>2019-12-07</lastmod>
+  </url>
+</urlset>

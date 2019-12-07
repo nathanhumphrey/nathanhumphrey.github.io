@@ -1,0 +1,295 @@
+:root {
+  --primary: #12c22a;
+  --secondary: #8cb191;
+  --lightgray: #e0e0e0;
+  --gray: #c0c0c0;
+  --darkgray: #333;
+  --navy: #17050f;
+  --blue: #082840;
+  --white: #fff;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: var(--darkgray);
+  background-color: var(--white);
+}
+p:last-child {
+  margin-bottom: 0;
+}
+.tmpl-post li,
+img {
+  max-width: 37.5em; /* 600px /16 */
+}
+p,
+.tmpl-post li {
+  line-height: 1.45;
+}
+.tmpl-post .tags .tag:first-child {
+  margin-left: 0;
+}
+a[href],
+a[href]:visited {
+  color: var(--darkgray);
+}
+a[href]:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+}
+h1 {
+  margin-top: 0;
+}
+main {
+  padding: 2rem 1rem 1rem 1rem;
+}
+main :first-child {
+  margin-top: 0rem;
+}
+main h1,
+main h2,
+main h3,
+main h4 {
+  font-family: "Ubuntu", sans-serif;
+}
+table {
+  margin: 1em 0;
+}
+table td,
+table th {
+  padding-right: 1em;
+}
+
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
+    "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+    "Courier New", Courier, monospace;
+  line-height: 1.5;
+}
+pre {
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: 0.5em 0;
+  background-color: #f6f6f6;
+}
+.highlight-line {
+  display: block;
+  padding: 0.125em 1em;
+  text-decoration: none; /* override del, ins, mark defaults */
+  color: inherit; /* override del, ins, mark defaults */
+}
+
+/* allow highlighting empty lines */
+.highlight-line:empty:before {
+  content: " ";
+}
+/* avoid double line breaks when using display: block; */
+.highlight-line + br {
+  display: none;
+}
+
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222;
+}
+.highlight-line-active {
+  background-color: #444;
+  background-color: hsla(0, 0%, 27%, 0.8);
+}
+.highlight-line-add {
+  background-color: #45844b;
+}
+.highlight-line-remove {
+  background-color: #902f2f;
+}
+
+/* Content */
+.container {
+  max-width: 37.5rem; /* 600px /16 */
+  margin: 0 auto;
+}
+/* Header */
+.page-header {
+  display: flex;
+  border-bottom: 1px dashed var(--secondary);
+}
+.page-header > .home {
+  margin-left: 1rem; /* 16px /16 */
+  font-size: 1rem; /* 16px /16 */
+  font-weight: bold;
+  line-height: 1.1;
+}
+.page-header > .home > a {
+  border: 1px solid var(--darkgray);
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  font-family: "Ubuntu", sans-serif;
+  text-decoration: none;
+  transition-duration: 0.333s;
+}
+.page-header > .home > a:hover {
+  color: var(--primary);
+  background-color: var(--darkgray);
+  transition-duration: 0.333s;
+}
+/* Nav */
+.page-nav {
+  display: flex;
+}
+.nav {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  margin-left: 1em;
+}
+.nav-item {
+  margin-right: 1em;
+  text-transform: lowercase;
+}
+.nav-item a[href]:not(:hover) {
+  text-decoration: none;
+}
+.nav-item.nav-item-active a {
+  font-weight: 700;
+}
+/* Posts list */
+.postlist {
+  list-style: none;
+  padding: 0;
+}
+.postlist-date {
+  font-size: 0.8125em; /* 13px /16 */
+  color: var(--darkgray);
+  word-spacing: -0.5px;
+}
+.postlist-link {
+  display: inline-block;
+  padding: 0.25em 0; /* 4px 0 /16 */
+}
+.postlist-item-active .postlist-link {
+  font-weight: bold;
+}
+.tmpl-home .postlist-link {
+  font-size: 1.1875em; /* 19px /16 */
+  font-weight: 700;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  vertical-align: text-top;
+  text-transform: uppercase;
+  font-size: 0.625em; /* 10px /16 */
+  padding: 2px 4px;
+  margin-left: 0.8em; /* 8px /10 */
+  background-color: var(--secondary);
+  color: var(--white);
+  border-radius: 0.25em; /* 3px /12 */
+  text-decoration: none;
+}
+a[href].tag,
+a[href].tag:visited {
+  color: #fff;
+}
+a[href].tag:hover {
+  background-color: var(--primary);
+}
+/* Warning */
+.warning {
+  background-color: #ffc;
+  padding: 1em 0.625em; /* 16px 10px /16 */
+}
+.warning ol:only-child {
+  margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.direct-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  margin-left: 0.1em;
+}
+a[href].direct-link,
+a[href].direct-link:visited {
+  color: transparent;
+}
+a[href].direct-link:focus,
+a[href].direct-link:focus:visited,
+:hover > a[href].direct-link,
+:hover > a[href].direct-link:visited {
+  color: #aaa;
+}
+
+/* Footer */
+.page-footer {
+  margin-top: 1rem;
+  padding: 2rem 0;
+  border-top: 1px dashed var(--secondary);
+  color: var(--secondary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Home */
+.welcome {
+  padding-bottom: 1rem;
+}
+.welcome .title {
+  margin: 0;
+  line-height: 1;
+  font-family: Ubuntu, sans-serif;
+  font-size: 10vw;
+  font-weight: bold;
+}
+.welcome .description {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* 480px / 16px */
+@media screen and (min-width: 30rem) {
+  .welcome .title {
+    margin: 0;
+    font-size: 2.75rem;
+  }
+}
+
+/* Utility */
+.attribution {
+  font-size: 0.5rem;
+}
+.meta {
+  color: var(--gray);
+  font-size: 0.75rem;
+  margin: 0;
+}
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
