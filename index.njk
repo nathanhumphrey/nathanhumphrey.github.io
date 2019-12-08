@@ -12,7 +12,7 @@ eleventyNavigation:
   </div>
   <h2>Latest Writings</h2>
   {% set postslist = collections.posts | head(-3) %} {% include "postslist.njk" %}
-  <p>
+  <p class="tmpl-post">
     More writing can be found <a href="{{ '/posts/' | url }}">here</a>.
   </p>
 </section>

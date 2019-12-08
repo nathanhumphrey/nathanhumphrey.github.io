@@ -1,10 +1,10 @@
 <ol reversed class="postlist" style="counter-reset: start-from {{ postslist.length + 1 }}">
 {% for post in postslist | reverse %}
   <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-    <div>
+    <h3>
       <a href="{{ post.url | url }}" class="postlist-link" title="{{post.data.title}}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    </div>
-    <div>
+    </h3>
+    <div class="meta">
       <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
       {% for tag in post.data.tags %}
         {%- if tag != "posts" -%}
@@ -12,6 +12,9 @@
         <a href="{{ tagUrl | url }}" class="tag" title="posts tagged with '{{tag}}'">{{ tag }}</a>
         {%- endif -%}
       {% endfor %}
+    </div>
+    <div class="abstract">
+      {{post.data.abstract}}
     </div>
   </li>
 {% endfor %}
