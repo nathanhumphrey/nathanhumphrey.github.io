@@ -22,6 +22,9 @@ body {
 p:last-child {
   margin-bottom: 0;
 }
+.tmpl-post a:hover {
+  font-weight: bold;
+}
 .tmpl-post li,
 img {
   max-width: 37.5em; /* 600px /16 */
@@ -36,9 +39,6 @@ p,
 a[href],
 a[href]:visited {
   color: var(--darkgray);
-}
-a[href]:hover {
-  text-decoration: underline;
   text-decoration-color: var(--primary);
 }
 h1 {
@@ -179,12 +179,16 @@ pre {
 }
 .postlist-date {
   font-size: 0.8125em; /* 13px /16 */
-  color: var(--darkgray);
+  color: var(--secondary);
   word-spacing: -0.5px;
 }
 .postlist-link {
   display: inline-block;
   padding: 0.25em 0; /* 4px 0 /16 */
+  text-decoration: none;
+}
+.postlist-link:hover {
+  text-decoration: underline;
 }
 .postlist-item-active .postlist-link {
   font-weight: bold;
@@ -280,7 +284,7 @@ a[href].direct-link:focus:visited,
   font-size: 0.5rem;
 }
 .meta {
-  color: var(--gray);
+  color: var(--secondary);
   font-size: 0.75rem;
   margin: 0;
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Nathan Humphrey</title>
-	<subtitle>Education, software development, and continuous learning</subtitle>
+	<subtitle>My thoughts ... and some practical stuff too</subtitle>
 	<link href="https://nathanhumphrey.ca/feed/feed.xml" rel="self"/>
 	<link href="https://nathanhumphrey.ca/"/>
 	<updated>2019-12-07T07:00:00-00:00</updated>
