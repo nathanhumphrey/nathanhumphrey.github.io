@@ -63,7 +63,11 @@ table td,
 table th {
   padding-right: 1em;
 }
-
+code {
+  background-color: var(--lightgray);
+  border-radius: 3px;
+  padding: 0.15rem;
+}
 pre,
 code {
   font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
@@ -273,6 +277,7 @@ a[href].direct-link:focus:visited,
 }
 .welcome .description {
   margin-top: 0;
+  padding-left: 0.1rem;
   color: var(--primary);
 }
 

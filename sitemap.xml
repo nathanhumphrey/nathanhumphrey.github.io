@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nathanhumphrey.ca/posts/firstpost/</loc>
+    <loc>https://nathanhumphrey.ca/posts/2019-12-07-one-more-time/</loc>
     <lastmod>2019-12-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/posts/2019-12-09-personal-ghpages-11ty-config/</loc>
+    <lastmod>2019-12-08</lastmod>
   </url>
   
   <url>
@@ -33,6 +38,11 @@
   
   <url>
     <loc>https://nathanhumphrey.ca/tags/personal/</loc>
+    <lastmod>2019-12-08</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/tags/software/</loc>
     <lastmod>2019-12-08</lastmod>
   </url>
 </urlset>
