@@ -1,9 +1,9 @@
 {
   "title": "Nathan Humphrey",
   "url": "https://nathanhumphrey.ca/",
-  "description": "Education, software development, and continuous learning",
+  "description": "My thoughts ... and some practical stuff too",
   "feed": {
-    "subtitle": "Education, software development, and continuous learning",
+    "subtitle": "My thoughts ... and some practical stuff too",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "url": "https://nathanhumphrey.ca/feed/feed.xml",
