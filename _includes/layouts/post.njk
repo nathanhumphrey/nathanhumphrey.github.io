@@ -4,14 +4,15 @@ templateClass: tmpl-post
 ---
 <p class="meta"><time datetime="{{page.date.toISOString()}}">{{page.date.toLocaleDateString()}}</time>
 <h1>{{ title }}</h1>
-<div class="tags">
+<span class="meta">by {{metadata.author.name}}</span>
+<span class="tags">
 {% for tag in tags %}
     {%- if tag != "posts" -%}
     {% set tagUrl %}/tags/{{ tag }}/{% endset %}
     <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
     {%- endif -%}
 {% endfor %}
-</div>
+</span>
 {{ content | safe }}
 
 <p>
