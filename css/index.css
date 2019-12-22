@@ -210,6 +210,8 @@ pre {
 }
 .postlist-item {
   margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--secondary);
 }
 .postlist-item .abstract {
   margin-top: 1rem;
@@ -221,7 +223,7 @@ pre {
 .tmpl-home .postlist-item h2,
 .tmpl-home .postlist-item h3 {
   margin-bottom: 1rem;
-  line-height: 0.6;
+  line-height: 1rem;
 }
 
 /* Tags */
