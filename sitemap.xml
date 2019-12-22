@@ -12,37 +12,47 @@
   </url>
   
   <url>
+    <loc>https://nathanhumphrey.ca/posts/2019-12-21-simple-webpack-setup/</loc>
+    <lastmod>2019-12-21</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nathanhumphrey.ca/about/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
   </url>
   
   <url>
     <loc>https://nathanhumphrey.ca/posts/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
   </url>
   
   <url>
     <loc>https://nathanhumphrey.ca/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
   </url>
   
   <url>
     <loc>https://nathanhumphrey.ca/page-list/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
   </url>
   
   <url>
     <loc>https://nathanhumphrey.ca/tags/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
   </url>
   
   <url>
     <loc>https://nathanhumphrey.ca/tags/personal/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
   </url>
   
   <url>
     <loc>https://nathanhumphrey.ca/tags/software/</loc>
-    <lastmod>2019-12-10</lastmod>
+    <lastmod>2019-12-22</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nathanhumphrey.ca/tags/webpack/</loc>
+    <lastmod>2019-12-22</lastmod>
   </url>
 </urlset>
