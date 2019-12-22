@@ -1,7 +1,7 @@
 ---
 title: Personal GitHub Pages 11ty Configuration
 description: Configure 11ty Travis build for a personal Gihtub Pages site.
-abstract: 11ty is a great static site generator, it's what I'm using to publish this blog post, and it's a snap to set up on GitHub Pages with Travis CI . There is, however, one thing ...
+abstract: 11ty is a great static site generator, it's what I'm using to publish this blog post, and it's a snap to set up on GitHub Pages with Travis CI . There is, however, one thing...
 date: 2019-12-08 7:00:00.00
 tags:
   - software
@@ -32,5 +32,7 @@ deploy:
     branch: source # set to whatever branch has your source
   target-branch: master # required for personal gh-pages
 ```
+
+<p class="caption">.travis.yml for user gh-pages site</p>
 
 The `branch` key allows for you to state the branch that holds your source files to build from. The `target-branch` key must have a value of `master`, which, as stated above, is required for publishing personal or organization pages via gh-pages. Once you've made these changes, you should be able to run your Travis build successfully. Happy blogging!

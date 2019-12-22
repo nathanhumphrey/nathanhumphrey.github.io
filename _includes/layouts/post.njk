@@ -2,19 +2,19 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<p class="meta"><time datetime="{{page.date.toISOString()}}">{{page.date.toLocaleDateString()}}</time>
 <h1>{{ title }}</h1>
-<span class="meta">by {{metadata.author.name}}</span>
-<span class="tags">
+<p class="meta time"><time datetime="{{page.date.toISOString()}}">{{page.date.toLocaleDateString('en-CA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}}</time></p>
+<p class="meta author">by {{metadata.author.name}}</p>
+<p class="meta tags">
 {% for tag in tags %}
     {%- if tag != "posts" -%}
     {% set tagUrl %}/tags/{{ tag }}/{% endset %}
     <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
     {%- endif -%}
 {% endfor %}
-</span>
+</p>
 {{ content | safe }}
 
-<p>
+<p class="top">
     <a href="{{ '#top' | url }}">Top</a>
 </p>

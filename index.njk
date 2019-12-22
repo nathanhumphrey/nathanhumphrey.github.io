@@ -7,10 +7,11 @@ eleventyNavigation:
 
 <section>
   <div class="welcome">
-    <p class="title">{{ metadata.title }}</p>
+    <h1 class="title">{{ metadata.title }}</h1>
     <p class="description">{{ metadata.description }}</p>
   </div>
   <h2>Latest Writings</h2>
+  {% set isIndex = 'true' %}
   {% set postslist = collections.posts | head(-3) %} {% include "postslist.njk" %}
   <p class="tmpl-post">
     More writing can be found <a href="{{ '/posts/' | url }}">here</a>.
