@@ -2,10 +2,25 @@
 layout: layouts/home.njk
 permalink: /about/
 eleventyNavigation:
-  key: About Me
+  key: About
   order: 3
 ---
 
 <h1>About Me</h1>
-
-<p>I am a person that writes stuff. More about me to come.</p>
+<div class="about">
+  <section class="personal">
+    <h2 class="visually-hidden">Personal</h2>
+    <p>
+      <img class="me" src="/img/me.jpg" alt="A picture of me"/>
+      Hi there! I'm Nathan Humphrey, an educator and a program leader at
+      <a href="https://www.nait.ca/nait/home" rel="noopener" target="_blank">NAIT</a> in Edmonton, AB.
+      I have a passion for teaching software development, and I'm always learning and sharing new things.
+    </p>
+  </section>
+  <section class="social">
+    <h2>Social</h2>
+    <a href="https://github.com/nathanhumphrey" rel="noopener" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/nathan-humphrey-5a7a97169/" rel="noopener" target="_blank">LinkedIn</a>
+    <a href="https://nathanhumphrey.ca" rel="noopener" target="_blank">Web</a>
+  </section>
+</div>
