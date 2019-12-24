@@ -5,6 +5,7 @@
   --highlight: #dbffe0;
   --saturated: #28c43d;
   --darkgray: #333333;
+  --lightgray: #dfdfdf;
   --warn: #fff6c9;
   --white: #fff;
 }
@@ -348,6 +349,7 @@ p.caption {
 p.info {
   background-color: var(--info);
   padding: 0.5rem;
+  border-radius: 3px;
 }
 p.top {
   text-align: right;
@@ -355,6 +357,7 @@ p.top {
 p.warn {
   background-color: var(--warn);
   padding: 0.5rem;
+  border-radius: 3px;
 }
 code.term {
   display: block;
