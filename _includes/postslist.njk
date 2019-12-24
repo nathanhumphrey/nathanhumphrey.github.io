@@ -6,6 +6,8 @@
     {% if isIndex %} </h3> {% else %} </h2> {% endif %}
     <div class="meta">
       <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    </div>
+    <div class="meta">
       {% for tag in post.data.tags %}
         {%- if tag != "posts" -%}
         {% set tagUrl %}/tags/{{ tag }}/{% endset %}
