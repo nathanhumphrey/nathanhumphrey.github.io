@@ -6,9 +6,6 @@ date: 2019-12-21 7:00:00.00
 tags:
   - software
   - webpack
-  - node
-  - npm
-  - build tools
 layout: layouts/post.njk
 ---
 

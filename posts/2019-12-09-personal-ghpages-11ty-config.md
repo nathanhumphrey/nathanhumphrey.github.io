@@ -5,9 +5,6 @@ abstract: 11ty is a great static site generator, it's what I'm using to publish 
 date: 2019-12-08 7:00:00.00
 tags:
   - software
-  - 11ty
-  - SSG
-  - gh-pages
 layout: layouts/post.njk
 ---
 
