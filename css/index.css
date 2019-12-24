@@ -1,14 +1,14 @@
 :root {
-  --primary: #58b365;
-  --secondary: #8cb191;
+  --primary: #676767;
+  --secondary: #787878;
   --info: #d8f6ff;
   --highlight: #dbffe0;
-  --lightgray: #e0e0e0;
-  --gray: #c0c0c0;
+  --saturated: #28c43d;
   --darkgray: #333333;
   --warn: #fff6c9;
   --white: #fff;
 }
+/*--secondary: #8cb191;*/
 ::selection {
   background: var(--highlight); /* WebKit/Blink Browsers */
 }
@@ -40,15 +40,24 @@ p,
 a[href],
 a[href]:link,
 a[href]:visited {
-  background: linear-gradient(to bottom, var(--white) 0%, var(--primary) 100%);
+  background-image: linear-gradient(
+    to bottom,
+    var(--white) 30%,
+    var(--primary) 100%
+  );
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 0.1rem 0.3rem;
-  color: #000;
+  color: var(--darkgray);
   text-decoration: none;
   transition: background-size 0.2s;
 }
 a[href]:hover {
+  background-image: linear-gradient(
+    to bottom,
+    var(--white) 30%,
+    var(--saturated) 100%
+  );
   background-size: 0.1rem 0.6rem;
 }
 h1 {
@@ -149,6 +158,7 @@ pre {
 }
 .page-header > .home {
   margin-left: 1rem; /* 16px /16 */
+  margin-top: 1.0625rem; /* 17px /16 */
   font-size: 1rem; /* 16px /16 */
   font-weight: bold;
   line-height: 1.1;
@@ -165,7 +175,7 @@ pre {
   transition-duration: 0.333s;
 }
 .page-header > .home > a[href]:hover {
-  color: var(--primary);
+  color: var(--saturated);
   background-color: var(--darkgray);
   transition-duration: 0.333s;
 }
@@ -188,6 +198,7 @@ pre {
 }
 .nav-item a[href]:hover {
   transition-duration: 0.333s;
+  color: var(--darkgray);
 }
 .nav-item.nav-item-active a {
   font-weight: 700;
@@ -213,8 +224,11 @@ pre {
   padding-bottom: 1rem;
   border-bottom: 1px dashed var(--secondary);
 }
+.postlist-item:last-child {
+  border-bottom: none;
+}
 .postlist-item .abstract {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .postlist-item a[href].postlist-link:not(:hover) {
   background-size: 0 0;
@@ -222,7 +236,7 @@ pre {
 }
 .tmpl-home .postlist-item h2,
 .tmpl-home .postlist-item h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1;
 }
 
@@ -236,7 +250,8 @@ a[href].tag:visited {
   text-transform: uppercase;
   font-size: 0.75rem; /* 12px /16 */
   padding: 2px 4px;
-  margin-left: 0.5em; /* 8px /16 */
+  margin-bottom: 0.16rem; /* 1px /16 */
+  margin-right: 0.5em; /* 8px /16 */
   background: var(--primary);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
@@ -245,10 +260,10 @@ a[href].tag:visited {
   color: #fff;
 }
 a[href].tag:hover {
-  background-color: var(--primary);
+  background-color: var(--saturated);
 }
-a[href].tag:first-child {
-  margin-left: 0;
+a[href].tag:last-child {
+  margin-right: 0;
 }
 /* Warning */
 .warning {
@@ -311,7 +326,7 @@ a[href].direct-link:focus:visited,
 }
 .meta {
   color: var(--secondary);
-  margin: 0;
+  margin: 0.5rem 0;
 }
 .meta.author,
 .meta.time {

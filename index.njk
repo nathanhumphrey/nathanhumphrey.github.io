@@ -14,6 +14,6 @@ eleventyNavigation:
   {% set isIndex = 'true' %}
   {% set postslist = collections.posts | head(-3) %} {% include "postslist.njk" %}
   <p class="tmpl-post">
-    More writing can be found <a href="{{ '/posts/' | url }}">here</a>.
+    <a href="{{ '/posts/' | url }}">Additional posts...</a>
   </p>
 </section>
