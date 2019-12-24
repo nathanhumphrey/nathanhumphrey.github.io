@@ -15,7 +15,7 @@
     <meta name="Description" content="Configure 11ty Travis build for a personal Gihtub Pages site.">
     <link rel="icon" type="image/png" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css?333d4cfd7e4b64e7aea96a233a7f137f">
+    <link rel="stylesheet" href="/css/index.css?4e02c5d3959104e7761f7ae9eedbca7e">
     <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Nathan Humphrey">
   </head>
@@ -40,6 +40,9 @@
 <p class="meta tags">
 
     <a href="/tags/software/" class="tag">software</a>
+    <a href="/tags/11ty/" class="tag">11ty</a>
+    <a href="/tags/SSG/" class="tag">SSG</a>
+    <a href="/tags/gh-pages/" class="tag">gh-pages</a>
 </p>
 <p>11ty is a great static site generator, it's what I'm using to publish this blog post, and it's a snap to set up on <a href="https://pages.github.com/">GitHub Pages</a> with <a href="https://travis-ci.org/">Travis CI</a>. There is, however, one thing that's missing from the setup documentation found on the 11ty site, and that is, how to configure your Travis build for a personal site vs a project site. While the differences are minor, they could take a little time to figure out,which is why I'm documenting them here.</p>
 <p>The 11ty site links to a Jonathan Snook <a href="https://snook.ca/archives/servers/deploying-11ty-to-gh-pages">post</a> that provides a good walkthrough of the required steps, but the Travis configuration needs some tweaking for a personal site. The relevant changes that must be made are referred to in <a href="https://github.com/11ty/eleventy-base-blog/issues/11">this issue</a> posted to the 11ty GitHub repo. Read through the comments to see the full discussion; I'm merely documenting required changes here to help spread the word.</p>
