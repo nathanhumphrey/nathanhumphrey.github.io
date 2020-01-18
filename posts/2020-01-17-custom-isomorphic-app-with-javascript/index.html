@@ -1,21 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50453547-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-50453547-1');
-    </script>
+    </script>-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Isomorphic App with JavaScript</title>
     <meta name="Description" content="A walkthrough build of a simple isomorphic JavaScript application, built using Koa and React.">
     <link rel="icon" type="image/png" href="/favicon.ico?2108987463f3bdd37020efde9541db90">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css?2108987463f3bdd37020efde9541db90">
+    <link rel="stylesheet" href="/css/index.css?60a75e1a98bd2ee560b8146ca73eea74">
     <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Nathan Humphrey">
   </head>
@@ -45,30 +45,29 @@
     <a href="/tags/react/" class="tag">react</a>
     <a href="/tags/koa/" class="tag">koa</a>
 </p>
-<p><strong>Is it easy to do? Sure, but you probably just want to use an existing solution.</strong></p>
-<h2 id="okay%2C-ssr%2C-but-why%3F">Okay, SSR, but why? <a class="direct-link" href="#okay%2C-ssr%2C-but-why%3F">#</a></h2>
+<h2 id="but-why%3F">But why? <a class="direct-link" href="#but-why%3F">#</a></h2>
 <p>So, the other day, I had this great idea to explore the land of <a href="https://en.wikipedia.org/wiki/Isomorphic_JavaScript">isomorphic</a> JavaScript and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes you need to execute some custom business logic or work with a secret key that you don't want to be exposed on the client. For me, the goto choice for the front-end part of this project will be React (sorry Vue fans, but I haven't been converted … yet), and you might think that Express would be my go-to for the server, but I've been working with Koa for some time now so that's what I've chosen as my backend for this project.</p>
 <p>Alright, what will it take to pull this off?</p>
 <h2 id="requirements">Requirements <a class="direct-link" href="#requirements">#</a></h2>
 <ul>
 <li>Backend server - we can't render on the server if there is no server</li>
-<li>Front-end library that supports SSR - support code sharing between client and server</li>
-<li>Application bundler - work with any ES6+ features and, in this case, JSX</li>
+<li>Front-end library that supports SSR - code sharing between client and server</li>
+<li>Application bundler - work with ES6+ features and, in this case, JSX</li>
 </ul>
-<p>As this post is about SSR with JavaScript, I'm not going to go into the details of the libraries/frameworks I've chosen to use in the implementation. If you'd like to learn more about them, there are many articles and courses online that can help. I've created a GitHub <a href="https://github.com/nathanhumphrey/koa-react-boiler">repo</a> with the finished project that you can check out as well.</p>
+<p>As this post is about isomorphic development with JavaScript, I'm not going to go into the details of the libraries/frameworks I've chosen to use in the implementation. If you'd like to learn more about them, there are many articles and courses online that can help. I've created a GitHub <a href="https://github.com/nathanhumphrey/simple-isomorphic-app">repo</a> with the finished project that you can check out as well.</p>
 <h3 id="node.js-%2B-koa">Node.js + Koa <a class="direct-link" href="#node.js-%2B-koa">#</a></h3>
-<p>Some of you may be thinking, “<a href="https://koajs.com/">Koa</a>? Never heard of it, why not use Express?”and you're right, you could use Express but I prefer the <a href="https://github.com/koajs/koa/blob/master/docs/koa-vs-express.md">&quot;simplicity&quot; and configuration-over-convention</a> of Koa. Everything I'm about to run through with Koa you could easily implement in Express, so this isn't that big an issue.</p>
+<p>Some of you may be thinking, &quot;<a href="https://koajs.com/">Koa</a>? Never heard of it, why not use Express?&quot; and you're right, you could use Express but I prefer the <a href="https://github.com/koajs/koa/blob/master/docs/koa-vs-express.md">&quot;simplicity&quot; and configuration-over-convention</a> of Koa. Everything I'm about to show you, using Koa, you could easily implement in Express, so this isn't that big an issue.</p>
 <h3 id="react">React <a class="direct-link" href="#react">#</a></h3>
-<p>These days, it seems like everything is built in <a href="https://reactjs.org/">React</a>; there are some promising up-and-comers, but React is still the dominant front-end library. Of course, using a front-end library is not a strict requirement, building an isomorphic app could be done via vanilla JS, but React is fairly ubiquitous and supports <a href="https://reactjs.org/docs/react-dom-server.html">SSR</a>, so that should save some time.</p>
+<p>These days, it seems like everything is built in <a href="https://reactjs.org/">React</a>; there are some promising up-and-comers, but React is still the dominant front-end library. Of course, using a front-end library is not a strict requirement, building an isomorphic app could be done via vanilla JS, but React is fairly ubiquitous and supports <a href="https://reactjs.org/docs/react-dom-server.html">SSR</a>, so that should save us some time.</p>
 <h3 id="webpack">Webpack <a class="direct-link" href="#webpack">#</a></h3>
-<p>It's <a href="https://webpack.js.org/">webpack</a> FTW! Cuz we need to <a href="http://tinselcity.net/whys/packers">bundle all the things</a>... right? Seriously though, we need some way to transpile and bundle the application for deployment, so I've chosen to go with what I know here too. As stated above regarding Koa vs. Express, you could probably get this to work with another bundler (or perhaps just straight Babel), but webpack makes it so much easier for me.</p>
+<p>For bundling, I'm still sticking with <a href="https://webpack.js.org/">webpack</a>. You could ask &quot;why use a bundler at all?&quot;, and I'd respond, &quot;because we need to <a href="http://tinselcity.net/whys/packers">bundle all the things</a>... right?&quot; Seriously though, we need some way to transpile and bundle the application for deployment, so I've chosen to go with what I know here too. As stated above regarding Koa vs. Express, you could probably get this to work with another bundler (or perhaps just straight Babel), but webpack makes it so much easier for me.</p>
 <h2 id="initial-setup">Initial setup <a class="direct-link" href="#initial-setup">#</a></h2>
-<p>First things first, directory setup. For an isomorphic application, we'll need to have some code that executes on the client, some code that executes on the server, and some code that is shared between the two (essentially the application itself). So, with that in mind, let's set up our directory structure like so:</p>
+<p>First things first, we need a directory setup. For an isomorphic application, we'll need to have some code that executes on the client, some code that executes on the server, and some code that is shared between the two (essentially the application itself). So, with that in mind, let's set up our directory structure like so:</p>
 <pre class="language-bash"><code class="language-bash"><span class="highlight-line">project/</span><br><span class="highlight-line">    <span class="token operator">|</span>-src/</span><br><span class="highlight-line">        <span class="token operator">|</span>-client/</span><br><span class="highlight-line">        <span class="token operator">|</span>-server/</span><br><span class="highlight-line">        <span class="token operator">|</span>-app/</span></code></pre>
 <p class="caption">project directory structure</p>
 <p>This initial directory structure may require some modification once we get started, but these directories are pretty much must-haves. All development code will be stored in the <code>src/</code> directory; specifically, the Koa server will be stored in <code>server/</code>, the client loader will be stored in <code>client/</code>, and the React application will be stored in <code>app/</code>.</p>
 <h3 id="install-the-requirements">Install the requirements <a class="direct-link" href="#install-the-requirements">#</a></h3>
-<p>Initialize your project with npm and then install the basics:</p>
+<p>From within your terminal, navigate to your <code>project/</code> directory, initialize your project with npm, and then install the required base packages:</p>
 <pre class="language-bash"><code class="language-bash"><span class="highlight-line">$ <span class="token function">npm</span> init -y</span><br><span class="highlight-line">$ <span class="token function">npm</span> i @babel/core @babel/preset-env @babel/preset-react <span class="token punctuation">\</span></span><br><span class="highlight-line">react react-dom koa @babel/cli koa-webpack webpack webpack-cli <span class="token punctuation">\</span></span><br><span class="highlight-line">babel-loader</span></code></pre>
 <p class="caption">npm init and install commands</p>
 <h3 id="write-the-application">Write the application <a class="direct-link" href="#write-the-application">#</a></h3>
@@ -117,7 +116,17 @@
 <p>Update the package.json script:</p>
 <pre class="language-json"><code class="language-json"><span class="highlight-line">...</span><br><span class="highlight-line"><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span></span><br><span class="highlight-line">    <span class="token property">"serve"</span><span class="token operator">:</span> <span class="token string">"node index.js"</span></span><br><span class="highlight-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span><br><span class="highlight-line">...</span></code></pre>
 <p class="caption">script to execute the server, should work now</p>
-<p>Now, you can marvel at your application in action! If you open your browser's dev tools, you should be able to see the original source that was sent from the server (rendered App), but also note that the application has been hydrated and responds to the user as expected (click the button!). That's it, an isomorphic app in action… but, by no means is it production-ready.</p>
+<p>One last time, return to your terminal, and try the <code>serve</code> script again:</p>
+<p><code class="term">npm run serve</code></p>
+<p>All should be well in the terminal window, so let's see what's being served to the client. Open or return to your browser tab and navigate to <code>http://localhost:3000</code>. Now, you can marvel at your application in action! If you open your browser's dev tools, you should be able to see the original source that was sent from the server (rendered App), but also note that the application has been hydrated and responds to the user interaction as expected (click the button!). That's it, an isomorphic app in action... but, by no means is it production-ready.</p>
+<h2 id="there%E2%80%99s-still-a-lot-more-to-do">There’s still a lot more to do <a class="direct-link" href="#there%E2%80%99s-still-a-lot-more-to-do">#</a></h2>
+<p>This exercise is instructive as to 'how' isomorphic apps can be built with JavaScript, but it has by no means tackled any of the additional requirements a typical app needs in production. Heck, we’re only running the bundler and server in development mode! Additional topics to cover include (but are not limited to):</p>
+<ul>
+<li>Application routing</li>
+<li>Serving static assets</li>
+<li>Bundling for production</li>
+</ul>
+<p>I may cover these additional topics in future posts if I can find the time.</p>
 
 
 <p class="top">
