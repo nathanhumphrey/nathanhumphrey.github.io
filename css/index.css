@@ -43,12 +43,12 @@ a[href]:link,
 a[href]:visited {
   background-image: linear-gradient(
     to bottom,
-    var(--white) 30%,
+    var(--white) 70%,
     var(--primary) 100%
   );
   background-position: 0 100%;
   background-repeat: repeat-x;
-  background-size: 0.1rem 0.3rem;
+  background-size: 0.1rem 0.5rem;
   color: var(--darkgray);
   text-decoration: none;
   transition: background-size 0.2s;
@@ -59,7 +59,6 @@ a[href]:hover {
     var(--white) 30%,
     var(--saturated) 100%
   );
-  background-size: 0.1rem 0.6rem;
 }
 h1 {
   margin-top: 0;
