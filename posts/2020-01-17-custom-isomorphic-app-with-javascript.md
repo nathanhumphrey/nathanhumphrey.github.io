@@ -12,9 +12,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-**Is it easy to do? Sure, but you probably just want to use an existing solution.**
-
-## Okay, SSR, but why?
+## But why?
 
 So, the other day, I had this great idea to explore the land of [isomorphic](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) JavaScript and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes you need to execute some custom business logic or work with a secret key that you don't want to be exposed on the client. For me, the goto choice for the front-end part of this project will be React (sorry Vue fans, but I haven't been converted … yet), and you might think that Express would be my go-to for the server, but I've been working with Koa for some time now so that's what I've chosen as my backend for this project.
 
@@ -23,26 +21,26 @@ Alright, what will it take to pull this off?
 ## Requirements
 
 - Backend server - we can't render on the server if there is no server
-- Front-end library that supports SSR - support code sharing between client and server
-- Application bundler - work with any ES6+ features and, in this case, JSX
+- Front-end library that supports SSR - code sharing between client and server
+- Application bundler - work with ES6+ features and, in this case, JSX
 
-As this post is about SSR with JavaScript, I'm not going to go into the details of the libraries/frameworks I've chosen to use in the implementation. If you'd like to learn more about them, there are many articles and courses online that can help. I've created a GitHub [repo](https://github.com/nathanhumphrey/koa-react-boiler) with the finished project that you can check out as well.
+As this post is about isomorphic development with JavaScript, I'm not going to go into the details of the libraries/frameworks I've chosen to use in the implementation. If you'd like to learn more about them, there are many articles and courses online that can help. I've created a GitHub [repo](https://github.com/nathanhumphrey/simple-isomorphic-app) with the finished project that you can check out as well.
 
 ### Node.js + Koa
 
-Some of you may be thinking, “[Koa](https://koajs.com/)? Never heard of it, why not use Express?”and you're right, you could use Express but I prefer the ["simplicity" and configuration-over-convention](https://github.com/koajs/koa/blob/master/docs/koa-vs-express.md) of Koa. Everything I'm about to run through with Koa you could easily implement in Express, so this isn't that big an issue.
+Some of you may be thinking, "[Koa](https://koajs.com/)? Never heard of it, why not use Express?" and you're right, you could use Express but I prefer the ["simplicity" and configuration-over-convention](https://github.com/koajs/koa/blob/master/docs/koa-vs-express.md) of Koa. Everything I'm about to show you, using Koa, you could easily implement in Express, so this isn't that big an issue.
 
 ### React
 
-These days, it seems like everything is built in [React](https://reactjs.org/); there are some promising up-and-comers, but React is still the dominant front-end library. Of course, using a front-end library is not a strict requirement, building an isomorphic app could be done via vanilla JS, but React is fairly ubiquitous and supports [SSR](https://reactjs.org/docs/react-dom-server.html), so that should save some time.
+These days, it seems like everything is built in [React](https://reactjs.org/); there are some promising up-and-comers, but React is still the dominant front-end library. Of course, using a front-end library is not a strict requirement, building an isomorphic app could be done via vanilla JS, but React is fairly ubiquitous and supports [SSR](https://reactjs.org/docs/react-dom-server.html), so that should save us some time.
 
 ### Webpack
 
-It's [webpack](https://webpack.js.org/) FTW! Cuz we need to [bundle all the things](http://tinselcity.net/whys/packers)... right? Seriously though, we need some way to transpile and bundle the application for deployment, so I've chosen to go with what I know here too. As stated above regarding Koa vs. Express, you could probably get this to work with another bundler (or perhaps just straight Babel), but webpack makes it so much easier for me.
+For bundling, I'm still sticking with [webpack](https://webpack.js.org/). You could ask "why use a bundler at all?", and I'd respond, "because we need to [bundle all the things](http://tinselcity.net/whys/packers)... right?" Seriously though, we need some way to transpile and bundle the application for deployment, so I've chosen to go with what I know here too. As stated above regarding Koa vs. Express, you could probably get this to work with another bundler (or perhaps just straight Babel), but webpack makes it so much easier for me.
 
 ## Initial setup
 
-First things first, directory setup. For an isomorphic application, we'll need to have some code that executes on the client, some code that executes on the server, and some code that is shared between the two (essentially the application itself). So, with that in mind, let's set up our directory structure like so:
+First things first, we need a directory setup. For an isomorphic application, we'll need to have some code that executes on the client, some code that executes on the server, and some code that is shared between the two (essentially the application itself). So, with that in mind, let's set up our directory structure like so:
 
 ```bash
 project/
@@ -58,7 +56,7 @@ This initial directory structure may require some modification once we get start
 
 ### Install the requirements
 
-Initialize your project with npm and then install the basics:
+From within your terminal, navigate to your `project/` directory, initialize your project with npm, and then install the required base packages:
 
 ```bash
 $ npm init -y
@@ -270,4 +268,18 @@ Update the package.json script:
 
 <p class="caption">script to execute the server, should work now</p>
 
-Now, you can marvel at your application in action! If you open your browser's dev tools, you should be able to see the original source that was sent from the server (rendered App), but also note that the application has been hydrated and responds to the user as expected (click the button!). That's it, an isomorphic app in action… but, by no means is it production-ready.
+One last time, return to your terminal, and try the `serve` script again:
+
+<code class="term">npm run serve</code>
+
+All should be well in the terminal window, so let's see what's being served to the client. Open or return to your browser tab and navigate to `http://localhost:3000`. Now, you can marvel at your application in action! If you open your browser's dev tools, you should be able to see the original source that was sent from the server (rendered App), but also note that the application has been hydrated and responds to the user interaction as expected (click the button!). That's it, an isomorphic app in action... but, by no means is it production-ready.
+
+## There’s still a lot more to do
+
+This exercise is instructive as to 'how' isomorphic apps can be built with JavaScript, but it has by no means tackled any of the additional requirements a typical app needs in production. Heck, we’re only running the bundler and server in development mode! Additional topics to cover include (but are not limited to):
+
+- Application routing
+- Serving static assets
+- Bundling for production
+
+I may cover these additional topics in future posts if I can find the time.
