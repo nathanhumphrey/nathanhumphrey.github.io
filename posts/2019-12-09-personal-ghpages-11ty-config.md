@@ -11,7 +11,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-11ty is a great static site generator, it's what I'm using to publish this blog post, and it's a snap to set up on [GitHub Pages](https://pages.github.com/) with [Travis CI](https://travis-ci.org/). There is, however, one thing that's missing from the setup documentation found on the 11ty site, and that is, how to configure your Travis build for a personal site vs a project site. While the differences are minor, they could take a little time to figure out,which is why I'm documenting them here.
+11ty is a great static site generator, it's what I'm using to publish this blog post, and it's a snap to set up on [GitHub Pages](https://pages.github.com/) with [Travis CI](https://travis-ci.org/). There is, however, one thing that's missing from the setup documentation found on the 11ty site, and that is, how to configure your Travis build for a personal site vs a project site. While the differences are minor, they could take a little time to figure out, which is why I'm documenting them here.
 
 The 11ty site links to a Jonathan Snook [post](https://snook.ca/archives/servers/deploying-11ty-to-gh-pages) that provides a good walkthrough of the required steps, but the Travis configuration needs some tweaking for a personal site. The relevant changes that must be made are referred to in [this issue](https://github.com/11ty/eleventy-base-blog/issues/11) posted to the 11ty GitHub repo. Read through the comments to see the full discussion; I'm merely documenting required changes here to help spread the word.
 
