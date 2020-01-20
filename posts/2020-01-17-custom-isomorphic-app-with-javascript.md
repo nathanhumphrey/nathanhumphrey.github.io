@@ -5,6 +5,7 @@ abstract: So, the other day, I had this great idea to explore the land of isomor
 date: 2020-01-17 7:00:00.00
 tags:
   - software
+  - tutorial
   - isomorphic
   - ssr
   - react
@@ -67,7 +68,9 @@ babel-loader
 
 <p class="caption">npm init and install commands</p>
 
-### Write the application
+## Complete the build
+
+### Create the application
 
 Create an `App.js` file in the `src/app/` directory and add the following code:
 
@@ -94,7 +97,7 @@ export default App;
 
 The simple component created above will allow us to demonstrate that the app can be rendered server-side, but also provide interaction once on the client.
 
-### Write the server
+### Create the server
 
 Create an `index.js` file in the `src/server/` directory and add the following code:
 
@@ -203,7 +206,7 @@ export default ctx => {
 
 The `render-react-app.js` file doesn't do anything fancy, it simply creates a Koa middleware that can render our App component within a div; it also includes a `script` element that will be used to deliver the client payload for app hydration (see [webpack.config.js](#webpack.config.js) above). The middleware will call the `renderToString()` function from the `react-dom/server` package, the magic of SSR in this case. Also, I'm just going to let the browser fix the missing `html` and `head` elements, this is just a proof of concept app, at this time.
 
-### Write the client-side code
+### Create the client-side code
 
 The final thing that needs to be done is to ensure that we can [hydrate](https://reactjs.org/docs/react-dom.html#hydrate) our application on the client. Create an `index.js` file in the `src/client/` directory and add the following code:
 
@@ -221,7 +224,7 @@ ReactDOM.hydrate(<App />, document.getElementById("app"));
 
 That's it for the application!
 
-### Build and marvel at the mediocreness
+## Build and marvel at the mediocreness
 
 Finally, let's add a script that we can use to run our Koa server. Update package.json with the following:
 

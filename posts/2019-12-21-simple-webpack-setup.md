@@ -5,6 +5,7 @@ abstract: webpack is module bundler that can be used to prepare a static bundle 
 date: 2019-12-21 7:00:00.00
 tags:
   - software
+  - tutorial
   - webpack
   - node
   - npm
