@@ -1,5 +1,5 @@
 ---
-title: Custom Isomorphic App with JavaScript
+title: Isomorphic JavaScript App
 description: A walkthrough build of a simple isomorphic JavaScript application, built using Koa and React.
 abstract: So, the other day, I had this great idea to explore the land of isomorphic JavaScript and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes ...
 date: 2020-01-17 7:00:00.00
@@ -15,17 +15,19 @@ layout: layouts/post.njk
 
 ## But why?
 
-So, the other day, I had this great idea to explore the land of [isomorphic](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) JavaScript and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes you need to execute some custom business logic or work with a secret key that you don't want to be exposed on the client. For me, the goto choice for the front-end part of this project will be React (sorry Vue fans, but I haven't been converted … yet), and you might think that Express would be my go-to for the server, but I've been working with Koa for some time now so that's what I've chosen as my backend for this project.
+So, the other day, I had this great idea to explore the land of [isomorphic](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) JavaScript and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes you need to execute some custom business logic or work with a secret key that you don't want to be exposed on the client. For me, the goto choice for the front-end part of this project will be React (sorry Vue fans, but I haven't been converted ... yet), and you might think that Express would be my go-to for the server, but I've been working with Koa for some time now so that's what I've chosen as my backend for this project.
 
 Alright, what will it take to pull this off?
 
 ## Requirements
 
-- Backend server - we can't render on the server if there is no server
-- Front-end library that supports SSR - code sharing between client and server
+- Backend server - required for server-side rendering of course
+- Front-end library that supports SSR - code sharing between client and server (could be vanilla JS, but React works nicely here)
 - Application bundler - work with ES6+ features and, in this case, JSX
 
-As this post is about isomorphic development with JavaScript, I'm not going to go into the details of the libraries/frameworks I've chosen to use in the implementation. If you'd like to learn more about them, there are many articles and courses online that can help. I've created a GitHub [repo](https://github.com/nathanhumphrey/simple-isomorphic-app) with the finished project that you can check out as well.
+As this post is about isomorphic development with JavaScript, I'm not going to go into the details of the libraries/frameworks I've chosen to use in the implementation. If you'd like to learn more about them, there are many articles and courses online that can help. I've created a GitHub repo with the finished project that you can check out as well.
+
+_**You can find the project repository [here](https://github.com/nathanhumphrey/simple-isomorphic-app).**_
 
 ### Node.js + Koa
 
@@ -42,6 +44,10 @@ For bundling, I'm still sticking with [webpack](https://webpack.js.org/). You co
 ## Initial setup
 
 First things first, we need a directory setup. For an isomorphic application, we'll need to have some code that executes on the client, some code that executes on the server, and some code that is shared between the two (essentially the application itself). So, with that in mind, let's set up our directory structure like so:
+
+<p class="info">
+NOTE: the following directory structure is one that makes sense to me. You may see similar setups where the 'app' directory is named 'shared' or something else. Choose names that make sense to you.  
+</p>
 
 ```bash
 project/
@@ -74,6 +80,10 @@ babel-loader
 
 Create an `App.js` file in the `src/app/` directory and add the following code:
 
+<p class="info">
+NOTE: I've chosen to have this sample app implement a simple click interaction (as seen <a href="https://reactjs.org/docs/hooks-state.html">elsewhere</a>). Again here, choose whatever interaction you'd like if you want something more meaningful. I just wanted something easy to implement that would allow for testing code execution on the client.
+</p>
+
 ```js
 import React, { useState } from "react";
 
@@ -100,6 +110,10 @@ The simple component created above will allow us to demonstrate that the app can
 ### Create the server
 
 Create an `index.js` file in the `src/server/` directory and add the following code:
+
+<p class="info">
+NOTE: I wouldn't use the following implementation in production; meaning, I wouldn't want my application sever running everything through webpack for every request. Preparing an isomorphic applicaiton for production may be covered in another post.
+</p>
 
 ```js
 import Koa from "koa"; // base server
@@ -177,7 +191,9 @@ module.exports = {
 
 <p class="caption">webpack.config.js to create our application bundle</p>
 
-You will note I've used CJS module syntax for this file, which is due to it's being executed outside of any Babel pipeline; soon we should be able to use ES Modules everywhere.
+<p class="info">
+NOTE: I've used CJS module syntax for this file, which is due to it's being executed outside of any Babel pipeline; soon we should be able to use ES Modules everywhere.
+</p>
 
 #### renderReactApp.js
 
@@ -190,12 +206,17 @@ import App from "../app/App";
 
 export default ctx => {
   const renderComponent = (
-    <body>
-      <div id="app">
-        <App />
-      </div>
-      <script src="index.js" />
-    </body>
+    <html>
+      <head>
+        <title>Isomorphic React App</title>
+      </head>
+      <body>
+        <div id="app">
+          <App />
+        </div>
+        <script src="index.js" />
+      </body>
+    </html>
   );
 
   ctx.body = renderToString(renderComponent);
@@ -204,11 +225,15 @@ export default ctx => {
 
 <p class="caption">code for SSR of the React component we created earlier</p>
 
-The `render-react-app.js` file doesn't do anything fancy, it simply creates a Koa middleware that can render our App component within a div; it also includes a `script` element that will be used to deliver the client payload for app hydration (see [webpack.config.js](#webpack.config.js) above). The middleware will call the `renderToString()` function from the `react-dom/server` package, the magic of SSR in this case. Also, I'm just going to let the browser fix the missing `html` and `head` elements, this is just a proof of concept app, at this time.
+The `render-react-app.js` file doesn't do anything fancy, it simply creates a Koa middleware that can render our App component within a div; it also includes a `script` element that will be used to deliver the client payload for app hydration (see [webpack.config.js](#webpack.config.js) above). The middleware will call the `renderToString()` function from the `react-dom/server` package, which provides the magic of SSR in this case.
 
 ### Create the client-side code
 
 The final thing that needs to be done is to ensure that we can [hydrate](https://reactjs.org/docs/react-dom.html#hydrate) our application on the client. Create an `index.js` file in the `src/client/` directory and add the following code:
+
+<p class="warn">
+WARN: failing to hydrate the App on the client (and simply calling render) will result in React duplicating the efforts of your server. The hydrate function will attempt to work with the markup already provided.
+</p>
 
 ```js
 import React from "react";
@@ -224,7 +249,7 @@ ReactDOM.hydrate(<App />, document.getElementById("app"));
 
 That's it for the application!
 
-## Build and marvel at the mediocreness
+## Build and run the application
 
 Finally, let's add a script that we can use to run our Koa server. Update package.json with the following:
 
@@ -242,7 +267,11 @@ Open your terminal, and from the project directory, run the following:
 
 <code class="term">npm run serve</code>
 
-Open a browser tab and navigate to `http://localhost:3000` to see… nothing, because your terminal is filled with errors. As stated earlier, my current version of node doesn't support ES modules, but that's what I've chosen to use throughout my application (which says nothing about the JSX our server is going to try process in the render-react-app.js file, but I digress). We need to do one last thing before everything is ready to go. Install the `@babel/register` package to help us with our current issue, namely, we need to run our server script through Babel in order for it to work in its current state. Run the following command in your terminal:
+Open a browser tab and navigate to `http://localhost:3000` to see… nothing, because your terminal is filled with errors. As stated earlier, my current version of node doesn't support ES modules, but that's what I've chosen to use throughout the application (which says nothing about the JSX our server is going to try to process in the render-react-app.js file). We need to do one last thing before everything is ready to go. Install the `@babel/register` package to help us with our current issue, namely, we need to run our server script through Babel in order for it to work in its current state. Run the following command in your terminal:
+
+<p class="warn">
+WARN: as mentioned earlier, this setup works well for development purposes, but please don't adopt this practice for production. It would be better to run your application through Babel as part of a production build process and then run the server.
+</p>
 
 <code class="term">npm i @babel/register</code>
 
@@ -275,14 +304,17 @@ One last time, return to your terminal, and try the `serve` script again:
 
 <code class="term">npm run serve</code>
 
-All should be well in the terminal window, so let's see what's being served to the client. Open or return to your browser tab and navigate to `http://localhost:3000`. Now, you can marvel at your application in action! If you open your browser's dev tools, you should be able to see the original source that was sent from the server (rendered App), but also note that the application has been hydrated and responds to the user interaction as expected (click the button!). That's it, an isomorphic app in action... but, by no means is it production-ready.
+All should be well in the terminal window, so let's see what's being served to the client. Open or return to your browser tab and navigate to `http://localhost:3000`. Now, you can marvel at your application in action! If you open your browser's dev tools, you should be able to see the original source that was sent from the server (rendered App), but also note that the application has been hydrated and responds to the user interaction as expected (click the button!). That's it, an isomorphic JavaScript app in action... but, by no means is it production-ready.
 
-## There’s still a lot more to do
+## There’s still a lot more that we could explore
 
-This exercise is instructive as to 'how' isomorphic apps can be built with JavaScript, but it has by no means tackled any of the additional requirements a typical app needs in production. Heck, we’re only running the bundler and server in development mode! Additional topics to cover include (but are not limited to):
+This exercise is instructive as to 'how' isomorphic JavaScript apps could be built, but it has by no means tackled any of the additional requirements a typical app needs in production. Heck, we’re only running the bundler and server in development mode! Additional topics to cover include (but are not limited to):
 
-- Application routing
-- Serving static assets
-- Bundling for production
+- serving static assets
+- component styling and stylesheets
+- shared application routing
+- cross-site request forgery
+- bundling for production
+- many other topics
 
-I may cover these additional topics in future posts if I can find the time.
+I may cover these additional topics, or prepare a series, in the near future if I can find the time. Stay tuned.
