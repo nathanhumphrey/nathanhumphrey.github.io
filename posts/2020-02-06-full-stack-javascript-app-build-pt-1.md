@@ -560,7 +560,7 @@ export const routes = [
 
 <p class="caption">update routes to support pages and exact path matches - src/app/routes.js</p>
 
-The second thing we'll need to do now is to export all our known pages to they too can be easily accessed from one location. Create an `index.js` in `src/app/pages` and insert the following:
+The second thing we'll need to do now is to export all our known pages so they too can be easily accessed from one location. Create an `index.js` in `src/app/pages` and insert the following:
 
 ```js
 import HomePage from "./home";
@@ -608,7 +608,7 @@ export default App;
 
 <p class="caption">update routes to support pages and exact path matches - src/app/routes.js</p>
 
-Now our app router will only render routes with pages and exact path matches will be respected.
+Now our app router will only render routes that have pages, and it will also match exact paths when required.
 
 ### Wrap-Up
 
@@ -623,4 +623,4 @@ I want to encourage you to review the code and concepts we've covered in this po
 
 ### Up Next
 
-In the next part of this series (coming soon), we'll build and style the necessary components for completing this project. Specifically, We'll build a Nav component with links for navigating around the site as well as some components for viewing the user account details. I hope you'll continue to join me on this learning journey.
+In the next part of this series (coming soon), we'll build and style the necessary user interface components for this project. Specifically, We'll build a Nav component with links for navigating around the site as well as some components for viewing the user account details. A very simple user model will also be introduced to help us test our app. I hope you'll continue to join me on this learning journey.
