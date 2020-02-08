@@ -1,7 +1,7 @@
 ---
 title: Full Stack JavaScript Application Build Part 1 - Routes and Pages
-description:
-abstract:
+description: Part 1 of a series about how to build a full stack JavaScript application. This article is about routes and pages.
+abstract: I've come across a lot of articles online about how to build a front-end application or how to build a back-end REST API, but rarely do I find articles dedicated to building out a full application (both front and back), no less an isomorphic JavaScript application. So, I've decided to write the series that I was always hoping to come across.
 date: 2020-02-06 7:00:00.00
 tags:
   - software
@@ -52,7 +52,7 @@ I've also included some extra stretch goals as well (should the first six parts 
 NOTE: there are many articles published about how to implement most of the topics in the stretch goal list. Please feel free to use this project as a base for experimenting with other walkthroughs.
 </p>
 
-Get started by working through my earlier [Isomorphic JavaScript App](/posts/2020-01-17-isomorphic-javascript-app/) post first; this walkthrough builds the foundation that will be used in this series. If you'd just like to get started with this series, you can download the starting code from GitHub [here](https://github.com/nathanhumphrey/simple-isomorphic-app).
+Get started by working through my earlier [Isomorphic JavaScript App](/posts/2020-01-17-isomorphic-javascript-app/) post first, which builds the foundation that will be used in this series. If you'd just like to get started with this series, you can download the starting code from GitHub [here](https://github.com/nathanhumphrey/simple-isomorphic-app).
 
 ## Routes and Pages
 
@@ -91,22 +91,13 @@ Since the routes are at the heart of this application, we should utilize a share
 
 #### Routes
 
-Finally, time to code! Since the routes are shared by both the server and client, create the `routes.js` file in the `/app` directory.
-
-```bash
-app/
-  |- routes.js
-```
-
-<p class="caption">create routes.js in the /app directory
-
 Initially, our application will need to know a few things about each route:
 
 - the path (URL path to match)
 - the HTTP method (HTTP verb to accept)
 - the route name (unique name to identify the route)
 
-Export an array of routes from routes.js:
+Finally, time to code! Since the routes are shared by both the server and client, we will create the `routes.js` file in the `src/app/` directory. Once created, open the file and export an array of routes:
 
 ```js
 export const routes = [
@@ -133,13 +124,13 @@ export const routes = [
 ];
 ```
 
-<p class="caption">routes file for the application</p>
+<p class="caption">routes for the application - src/app/routes.js</p>
 
 <p class="info">
-NOTE: I've also included a <i>no match</i> route, for any non-matched routes.
+NOTE: I've also included a <i>nomatch</i> route, for any non-matched paths.
 </p>
 
-The array of routes in `routes.js` can now be imported into our `server/index.js` and used to direct requests, as well as in `App.js` to direct requests on the client. To make it easier for us to complete these two tasks, we'll make use of available packages: [koa-router](https://github.com/ZijianHe/koa-router) for the server and [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) for the client.
+The array of routes in `routes.js` can now be imported into our `src/server/index.js` and used to direct requests, as well as in `App.js` to direct requests on the client. To make it easier for us to complete these two tasks, we'll make use of available packages: [koa-router](https://github.com/ZijianHe/koa-router) for the server and [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) for the client.
 
 Install the required packages:
 
@@ -170,7 +161,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 In the example above, only get requests for the `/` path will be matched by the router. In response, the body of the context, which will be returned to the client, simply contains a string message to display. Let's implement this basic example before applying the routes we defined above.
 
-Open and update `/src/server/index.js` as follows:
+Open and update `src/server/index.js` as follows:
 
 ```js/2,10-17,22-24
 ...
@@ -224,12 +215,12 @@ Now, run the `serve` script and navigate to [http://localhost:3000/](http://loca
 </p>
 
 <pre class="language-json">
-...
-
-"serve": "<span class="highlight">nodemon</span> index.js"
-
-...
+<span class="highlight-line">...</span>
+<span class="highlight-line highlight-line-active">"serve": "nodemon index.js"</span>
+<span class="highlight-line">...</span>
 </pre>
+
+<p class="caption">update serve script - package.json</p>
 
 <p>
 Now, changes to the server code will be automatically reloaded and we won't have to stop and start the process whenever we make some changes. To see a more detailed setup using webpack and webpack DevServer, see this <a href="/posts/2019-12-21-simple-webpack-setup/#development-server">post</a>.
@@ -237,7 +228,7 @@ Now, changes to the server code will be automatically reloaded and we won't have
 
 </aside>
 
-Let's update the code to work with our defined routes. We can simply iterate over all routes in the array and apply a route to our koa-router for each one. Make the following updates to `/src/server/index.js`:
+Let's update the code to work with our defined routes. We can simply iterate over all routes in the array and apply a route to our koa-router for each one. Make the following updates to `src/server/index.js`:
 
 ```js/3,15-20
 ...
@@ -280,7 +271,7 @@ koaWebpack({ compiler }).then(middleware => {
 NOTE: There is a lot of versatility in the way in which we've implemented our routes. Looking to the future, we can easily extend the route objects in `routes.js` to define whether they require authentication, should be included in page navigation, require initial data, and so on.
 </p>
 
-The current handler for each route is just an arrow function, for the moment. What we really want is for our routes to be rendered by our react render middleware. Update the `/src/server/index.js` one final time before we move on to defining pages:
+The current handler for each route is just an arrow function, for the moment. What we really want is for our routes to be rendered by our react render middleware. Update the `src/server/index.js` one final time before we move on to defining pages:
 
 ```js/4
 ...
@@ -318,7 +309,7 @@ const Page = ({ children }) => {
 export default Page;
 ```
 
-<p class="caption">Page component src/app/components/Page.js</p>
+<p class="caption">Page component - src/app/components/Page.js</p>
 
 This component is pretty plain at the moment. It simply provides exactly what the name implies, a page that we can extend for our application. Any children defined within the Page component will simply be rendered. Let's put it into action by creating our first page.
 

@@ -1,9 +1,9 @@
 {
   "title": "Nathan Humphrey",
   "url": "https://nathanhumphrey.ca/",
-  "description": "My thoughts ... and some practical stuff too",
+  "description": "Software, tech, data, and whatever else I feel like",
   "feed": {
-    "subtitle": "My thoughts ... and some practical stuff too",
+    "subtitle": "Thoughts on software, tech, data, and whatever else I feel like",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "url": "https://nathanhumphrey.ca/feed/feed.xml",
