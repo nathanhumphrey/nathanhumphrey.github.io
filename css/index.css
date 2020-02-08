@@ -8,6 +8,7 @@
   --lightgray: #dfdfdf;
   --warn: #fff6c9;
   --white: #fff;
+  --transparent: rgba(255, 255, 255, 0);
 }
 /*--secondary: #8cb191;*/
 ::selection {
@@ -43,7 +44,7 @@ a[href]:link,
 a[href]:visited {
   background-image: linear-gradient(
     to bottom,
-    var(--white) 70%,
+    var(--transparent) 70%,
     var(--primary) 100%
   );
   background-position: 0 100%;
@@ -56,7 +57,7 @@ a[href]:visited {
 a[href]:hover {
   background-image: linear-gradient(
     to bottom,
-    var(--white) 30%,
+    var(--transparent) 30%,
     var(--saturated) 100%
   );
 }
@@ -148,7 +149,8 @@ pre {
 
 /* Content */
 .container {
-  max-width: 37.5rem; /* 600px /16 */
+  /* max-width: 37.5rem; 600px /16 */
+  max-width: 50rem; /* 800px /16 */
   margin: 0 auto;
 }
 /* Header */
@@ -195,10 +197,6 @@ pre {
 }
 .nav-item a[href]:not(:hover) {
   background-size: 0 0;
-}
-.nav-item a[href]:hover {
-  transition-duration: 0.333s;
-  color: var(--darkgray);
 }
 .nav-item.nav-item-active a {
   font-weight: 700;
@@ -316,7 +314,7 @@ a[href].direct-link:focus:visited,
   font-weight: bold;
 }
 .welcome .description {
-  margin-top: 0;
+  margin-top: 0.5rem;
   padding-left: 0.1rem;
   color: var(--primary);
 }
@@ -373,15 +371,26 @@ div.about img.me {
   border-radius: 50%;
   float: left;
 }
-aside {
+blockquote {
   border-left: 0.625rem solid var(--saturated);
+  margin-left: 0;
   padding: 0.5rem;
+}
+aside {
+  padding: 1rem;
+  background-color: var(--highlight);
+  border-radius: 3px;
 }
 /* 480px / 16px */
 @media screen and (min-width: 30rem) {
   .welcome .title {
     margin: 0;
     font-size: 2.75rem;
+  }
+  /* About */
+  .personal > p,
+  .social {
+    padding-left: 11.2rem;
   }
   div.about img.me {
     width: 10rem;
