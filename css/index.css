@@ -160,8 +160,8 @@ pre {
 }
 .page-header > .home {
   margin-left: 1rem; /* 16px /16 */
-  margin-top: 1.0625rem; /* 17px /16 */
-  font-size: 1rem; /* 16px /16 */
+  margin-top: 1.25rem; /* 20px /16 */
+  font-size: 1.25rem; /* 20px /16 */
   font-weight: bold;
   line-height: 1.1;
 }
@@ -193,6 +193,8 @@ pre {
 }
 .nav-item {
   margin-right: 1em;
+  font-size: 1.25rem; /* 20px / 16px */
+  line-height: 2rem; /* 32px / 16px */
   text-transform: lowercase;
 }
 .nav-item a[href]:not(:hover) {

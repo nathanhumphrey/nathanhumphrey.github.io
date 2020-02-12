@@ -15,7 +15,7 @@
     <meta name="Description" content="Part 1 of a series about how to build a full stack JavaScript application. This article is about routes and pages.">
     <link rel="icon" type="image/png" href="/favicon.ico?2108987463f3bdd37020efde9541db90">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css?e1fd7c362875933663374cdc5779b71d">
+    <link rel="stylesheet" href="/css/index.css?c9e5ee1b6044eb4d4944caa3dd4a9a">
     <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Nathan Humphrey">
   </head>
@@ -49,7 +49,7 @@
 <p><em>Learning about what goes into building a full-stack JavaScript application can be a little daunting, but with some grit and perseverance, it can be a really rewarding experience. In this series, I'll be building a very simple isomorphic JavaScript application with some extra bells and whistles (e.g. routing, CSRF tokens, authentication, production bundling, etc.). If that all sounds interesting to you, then come along for the ride!</em></p>
 <h2 id="introduction">Introduction <a class="direct-link" href="#introduction">#</a></h2>
 <p>I've come across a lot of articles online about how to build a front-end application or how to build a back-end REST API, but rarely do I find articles dedicated to building out a full application (both front and back), no less an isomorphic JavaScript application. So, I've decided to write the series that I was always hoping to come across.</p>
-<p><strong><em>The final project source can be found <a href="https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes">here</a></em></strong></p>
+<p><strong><em>The final project source can be found in this <a href="https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes">GitHub repo</a></em></strong></p>
 <h3 id="the-application">The Application <a class="direct-link" href="#the-application">#</a></h3>
 <p>To keep things simple, the application we'll build won't do anything special, and by anything special I mean nothing. I've read through a lot of articles that try to teach basic, or even more advanced, concepts by building a complex application, which I find distracts from the core of what was being covered. I just want to focus on the chosen topic with as little <em>application</em> logic as necessary to explore the details of the topic. No more, and no less.</p>
 <p>To that end, I plan on building an application that allows a user to sign up for an account, sign in and out of their account, and to view their account details (when signed in of course). That's it. With just these simple use cases, we can explore all the relevant bits that are required when creating a standard web application without getting lost in the details of the application logic. Effectively, when we're done, you'll have a boilerplate application setup that supports user accounts for whatever specific application you'd like to build next.</p>
@@ -58,11 +58,12 @@
 <p>The build will be divided into a six-part series:</p>
 <ol>
 <li><a href="/posts/2020-02-06-full-stack-javascript-app-build-pt-1">Routes and pages</a> ⇐ you are here</li>
-<li><s><a href="#">Building and styling components</a></s> (coming soon)</li>
-<li><s><a href="#">Authenticating users</a></s> (coming soon)</li>
-<li><s><a href="#">Protecting against CSRF</a></s> (coming soon)</li>
-<li><s><a href="#">Production bundling</a></s> (coming soon)</li>
-<li><s><a href="#">Deployment</a></s> (coming soon)</li>
+<li><s>Building components</s> (coming soon)</li>
+<li><s>Styling components</s> (coming soon)</li>
+<li><s>Authenticating users</s> (coming soon)</li>
+<li><s>Protecting against CSRF at tacks</s> (coming soon)</li>
+<li><s>Production bundling</s> (coming soon)</li>
+<li><s>Deployment</s> (coming soon)</li>
 </ol>
 <p>I've also included some extra stretch goals as well (should the first six parts go smoothly):</p>
 <ul>
@@ -75,7 +76,7 @@
 <p class="info">
 NOTE: there are many articles published about how to implement most of the topics in the stretch goal list. Please feel free to use this project as a base for experimenting with other walkthroughs.
 </p>
-<p>Get started by working through my earlier <a href="/posts/2020-01-17-isomorphic-javascript-app/">Isomorphic JavaScript App</a> post first, which builds the foundation that will be used in this series. If you'd just like to get started with this series, you can download the starting code from GitHub <a href="https://github.com/nathanhumphrey/simple-isomorphic-app">here</a>.</p>
+<p>Get started by working through my earlier <a href="/posts/2020-01-17-isomorphic-javascript-app/">Isomorphic JavaScript App</a> post first, which builds the foundation that will be used in this series. If you'd just like to get started with this series, you can download the <a href="https://github.com/nathanhumphrey/simple-isomorphic-app">starting code</a>.</p>
 <h2 id="routes-and-pages">Routes and Pages <a class="direct-link" href="#routes-and-pages">#</a></h2>
 <p>Our application will need to support the following use cases:</p>
 <ul>
@@ -218,7 +219,7 @@ WARN: the approach taken here will require that you match your page names in <co
 <li>Created necessary pages for rendering the application</li>
 <li>Implemented server-side and client-side application routing</li>
 </ul>
-<p>I want to encourage you to review the code and concepts we've covered in this post, and to experiment with potential alternatives for getting everything we've built come together. I've left the implementation of the two remaining pages (user.js and signup.js) as an exercise for you, the reader. I'll include all pages in the final version of this part of the series in the repo, which you can access <a href="https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes">here</a>.</p>
+<p>I want to encourage you to review the code and concepts we've covered in this post, and to experiment with potential alternatives for getting everything we've built come together. I've left the implementation of the two remaining pages (user.js and signup.js) as an exercise for you, the reader. I'll include all pages in the final version of this part of the series in the <a href="https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes">part 1 repo</a>.</p>
 <h3 id="up-next">Up Next <a class="direct-link" href="#up-next">#</a></h3>
 <p>In the next part of this series (coming soon), we'll build and style the necessary user interface components for this project. Specifically, We'll build a Nav component with links for navigating around the site as well as some components for viewing the user account details. A very simple user model will also be introduced to help us test our app. I hope you'll continue to join me on this learning journey.</p>
 
