@@ -19,7 +19,7 @@ _Learning about what goes into building a full-stack JavaScript application can 
 
 I've come across a lot of articles online about how to build a front-end application or how to build a back-end REST API, but rarely do I find articles dedicated to building out a full application (both front and back), no less an isomorphic JavaScript application. So, I've decided to write the series that I was always hoping to come across.
 
-**_The final project source can be found [here](https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes)_**
+**_The final project source can be found in this [GitHub repo](https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes)_**
 
 ### The Application
 
@@ -34,11 +34,12 @@ All that being said, there's nothing stopping you from making the build a little
 The build will be divided into a six-part series:
 
 1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1) ⇐ you are here
-2. ~~[Building and styling components](#)~~ (coming soon)
-3. ~~[Authenticating users](#)~~ (coming soon)
-4. ~~[Protecting against CSRF](#)~~ (coming soon)
-5. ~~[Production bundling](#)~~ (coming soon)
-6. ~~[Deployment](#)~~ (coming soon)
+2. ~~Building components~~ (coming soon)
+3. ~~Styling components~~ (coming soon)
+4. ~~Authenticating users~~ (coming soon)
+5. ~~Protecting against CSRF at tacks~~ (coming soon)
+6. ~~Production bundling~~ (coming soon)
+7. ~~Deployment~~ (coming soon)
 
 I've also included some extra stretch goals as well (should the first six parts go smoothly):
 
@@ -52,7 +53,7 @@ I've also included some extra stretch goals as well (should the first six parts 
 NOTE: there are many articles published about how to implement most of the topics in the stretch goal list. Please feel free to use this project as a base for experimenting with other walkthroughs.
 </p>
 
-Get started by working through my earlier [Isomorphic JavaScript App](/posts/2020-01-17-isomorphic-javascript-app/) post first, which builds the foundation that will be used in this series. If you'd just like to get started with this series, you can download the starting code from GitHub [here](https://github.com/nathanhumphrey/simple-isomorphic-app).
+Get started by working through my earlier [Isomorphic JavaScript App](/posts/2020-01-17-isomorphic-javascript-app/) post first, which builds the foundation that will be used in this series. If you'd just like to get started with this series, you can download the [starting code](https://github.com/nathanhumphrey/simple-isomorphic-app).
 
 ## Routes and Pages
 
@@ -610,7 +611,7 @@ That's quite a lot to digest for one post. Let's look back and recap what we've 
 - Created necessary pages for rendering the application
 - Implemented server-side and client-side application routing
 
-I want to encourage you to review the code and concepts we've covered in this post, and to experiment with potential alternatives for getting everything we've built come together. I've left the implementation of the two remaining pages (user.js and signup.js) as an exercise for you, the reader. I'll include all pages in the final version of this part of the series in the repo, which you can access [here](https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes).
+I want to encourage you to review the code and concepts we've covered in this post, and to experiment with potential alternatives for getting everything we've built come together. I've left the implementation of the two remaining pages (user.js and signup.js) as an exercise for you, the reader. I'll include all pages in the final version of this part of the series in the [part 1 repo](https://github.com/nathanhumphrey/simple-isomorphic-app/tree/routes).
 
 ### Up Next
 
