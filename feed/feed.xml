@@ -486,9 +486,9 @@ WARN: the approach taken here will require that you match your page names in &lt
 	
 	<entry>
 		<title>Full Stack JavaScript Application Build Part 2 - Building the Components</title>
-		<link href="https://nathanhumphrey.ca/posts/2019-02-12-full-stack-javascript-app-pt-2/"/>
+		<link href="https://nathanhumphrey.ca/posts/2020-02-12-full-stack-javascript-app-pt-2/"/>
 		<updated>2020-02-12T07:00:00-00:00</updated>
-		<id>https://nathanhumphrey.ca/posts/2019-02-12-full-stack-javascript-app-pt-2/</id>
+		<id>https://nathanhumphrey.ca/posts/2020-02-12-full-stack-javascript-app-pt-2/</id>
 		<content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction &lt;a class=&quot;direct-link&quot; href=&quot;#introduction&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Welcome to Part 2 of the Full Stack Application series. In this part of the series, we&#39;ll build and style a few simple components to allow us to fulfill the required use cases that were presented in &lt;a href=&quot;https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/&quot;&gt;part 1&lt;/a&gt;. If you&#39;d like to build the application but haven&#39;t worked through part 1 already, I would suggest you start there. If you&#39;d just like some info on how to build and style components, then please, read on.&lt;/p&gt;
 &lt;h3 id=&quot;roadmap&quot;&gt;Roadmap &lt;a class=&quot;direct-link&quot; href=&quot;#roadmap&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
