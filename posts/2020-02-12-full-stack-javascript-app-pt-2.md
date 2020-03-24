@@ -17,15 +17,17 @@ layout: layouts/post.njk
 
 Welcome to Part 2 of the Full Stack Application series. In this part of the series, we'll build and style a few simple components to allow us to fulfill the required use cases that were presented in [part 1](https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/). If you'd like to build the application but haven't worked through part 1 already, I would suggest you start there. If you'd just like some info on how to build and style components, then please, read on.
 
+**_The final project source can be found in this [GitHub repo](https://github.com/nathanhumphrey/simple-isomorphic-app/tree/components)_**
+
 ### Roadmap
 
 The build is divided into a seven-part series:
 
-1. [Routes and pages](https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/)
-2. Building components ⇐ you are here
-3. ~~Styling components~~ (coming soon)
-4. ~~Authenticating users~~ (coming soon)
-5. ~~Protecting against CSRF at tacks~~ (coming soon)
+1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1/)
+2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/) ⇐ you are here
+3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/)
+4. ~~Database access and authentication~~ (coming soon)
+5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
 7. ~~Deployment~~ (coming soon)
 

@@ -33,11 +33,11 @@ All that being said, there's nothing stopping you from making the build a little
 
 The build will be divided into a six-part series:
 
-1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1) ⇐ you are here
-2. ~~Building components~~ (coming soon)
-3. ~~Styling components~~ (coming soon)
-4. ~~Authenticating users~~ (coming soon)
-5. ~~Protecting against CSRF at tacks~~ (coming soon)
+1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1/) ⇐ you are here
+2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
+3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/)
+4. ~~Database access and authentication~~ (coming soon)
+5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
 7. ~~Deployment~~ (coming soon)
 
