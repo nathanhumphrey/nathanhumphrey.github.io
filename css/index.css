@@ -2,8 +2,8 @@
   --primary: #676767;
   --secondary: #787878;
   --info: #d8f6ff;
-  --highlight: #dbffe0;
-  --saturated: #28c43d;
+  --highlight: #74c0fd;
+  --saturated: #0071d7;
   --darkgray: #333333;
   --lightgray: #dfdfdf;
   --warn: #fff6c9;
@@ -367,10 +367,11 @@ div.about h2 {
   margin: 1.25rem 0;
 }
 div.about img.me {
-  width: 4rem;
+  display: block;
+  width: 10rem;
+  margin: auto;
   margin-right: 0.5rem;
   border-radius: 50%;
-  float: left;
 }
 blockquote {
   border-left: 0.625rem solid var(--saturated);
@@ -394,6 +395,7 @@ aside {
     padding-left: 11.2rem;
   }
   div.about img.me {
+    float: left;
     width: 10rem;
     margin-right: 1.25rem;
   }

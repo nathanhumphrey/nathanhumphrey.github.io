@@ -25,7 +25,7 @@ NOTE: emphasis here is placed on the <i>how</i> and not the <i>why</i>; what thi
 
 ### Roadmap
 
-The build is divided into a seven-part series:
+The build is divided into a six-part series:
 
 1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1/)
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
@@ -33,7 +33,6 @@ The build is divided into a seven-part series:
 4. ~~Database access and authentication~~ (coming soon)
 5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
-7. ~~Deployment~~ (coming soon)
 
 ## Component Styling Options
 

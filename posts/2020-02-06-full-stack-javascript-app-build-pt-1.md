@@ -39,14 +39,12 @@ The build will be divided into a six-part series:
 4. ~~Database access and authentication~~ (coming soon)
 5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
-7. ~~Deployment~~ (coming soon)
 
 I've also included some extra stretch goals as well (should the first six parts go smoothly):
 
 - Cache busting
 - Code splitting
 - Progressive enhancement
-- Database integration
 - Testing
 
 <p class="info">
