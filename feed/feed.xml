@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Nathan Humphrey</title>
-	<subtitle>Thoughts on software, tech, data, and other stuff.</subtitle>
+	<subtitle>Software, education, and other stuff.</subtitle>
 	<link href="https://nathanhumphrey.ca/feed/feed.xml" rel="self"/>
 	<link href="https://nathanhumphrey.ca/"/>
 	<updated>2020-03-24T07:00:00-00:00</updated>
@@ -322,14 +322,12 @@ WARN: as mentioned earlier, this setup works well for development purposes, but 
 &lt;li&gt;&lt;s&gt;Database access and authentication&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;li&gt;&lt;s&gt;Protecting against CSRF attacks&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;li&gt;&lt;s&gt;Production bundling&lt;/s&gt; (coming soon)&lt;/li&gt;
-&lt;li&gt;&lt;s&gt;Deployment&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;I&#39;ve also included some extra stretch goals as well (should the first six parts go smoothly):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Cache busting&lt;/li&gt;
 &lt;li&gt;Code splitting&lt;/li&gt;
 &lt;li&gt;Progressive enhancement&lt;/li&gt;
-&lt;li&gt;Database integration&lt;/li&gt;
 &lt;li&gt;Testing&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p class=&quot;info&quot;&gt;
@@ -493,7 +491,7 @@ WARN: the approach taken here will require that you match your page names in &lt
 &lt;p&gt;Welcome to Part 2 of the Full Stack Application series. In this part of the series, we&#39;ll build and style a few simple components to allow us to fulfill the required use cases that were presented in &lt;a href=&quot;https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/&quot;&gt;part 1&lt;/a&gt;. If you&#39;d like to build the application but haven&#39;t worked through part 1 already, I would suggest you start there. If you&#39;d just like some info on how to build and style components, then please, read on.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;The final project source can be found in this &lt;a href=&quot;https://github.com/nathanhumphrey/simple-isomorphic-app/tree/components&quot;&gt;GitHub repo&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;roadmap&quot;&gt;Roadmap &lt;a class=&quot;direct-link&quot; href=&quot;#roadmap&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;The build is divided into a seven-part series:&lt;/p&gt;
+&lt;p&gt;The build is divided into a six-part series:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/&quot;&gt;Routes and pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://nathanhumphrey.ca/posts/2020-02-12-full-stack-javascript-app-pt-2/&quot;&gt;Building components&lt;/a&gt; ⇐ you are here&lt;/li&gt;
@@ -501,7 +499,6 @@ WARN: the approach taken here will require that you match your page names in &lt
 &lt;li&gt;&lt;s&gt;Database access and authentication&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;li&gt;&lt;s&gt;Protecting against CSRF attacks&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;li&gt;&lt;s&gt;Production bundling&lt;/s&gt; (coming soon)&lt;/li&gt;
-&lt;li&gt;&lt;s&gt;Deployment&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;application-wireframes&quot;&gt;Application wireframes &lt;a class=&quot;direct-link&quot; href=&quot;#application-wireframes&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To help us envision what we&#39;re going to build, let&#39;s start with some basic wireframes.&lt;/p&gt;
@@ -709,7 +706,7 @@ NOTE: emphasis here is placed on the &lt;i&gt;how&lt;/i&gt; and not the &lt;i&gt
 &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;The final project source can be found in this &lt;a href=&quot;https://github.com/nathanhumphrey/simple-isomorphic-app/tree/styling&quot;&gt;GitHub repo&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;roadmap&quot;&gt;Roadmap &lt;a class=&quot;direct-link&quot; href=&quot;#roadmap&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;The build is divided into a seven-part series:&lt;/p&gt;
+&lt;p&gt;The build is divided into a six-part series:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/&quot;&gt;Routes and pages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://nathanhumphrey.ca/posts/2020-02-12-full-stack-javascript-app-pt-2/&quot;&gt;Building components&lt;/a&gt;&lt;/li&gt;
@@ -717,7 +714,6 @@ NOTE: emphasis here is placed on the &lt;i&gt;how&lt;/i&gt; and not the &lt;i&gt
 &lt;li&gt;&lt;s&gt;Database access and authentication&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;li&gt;&lt;s&gt;Protecting against CSRF attacks&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;li&gt;&lt;s&gt;Production bundling&lt;/s&gt; (coming soon)&lt;/li&gt;
-&lt;li&gt;&lt;s&gt;Deployment&lt;/s&gt; (coming soon)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;component-styling-options&quot;&gt;Component Styling Options &lt;a class=&quot;direct-link&quot; href=&quot;#component-styling-options&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To begin, the official React website has a brief intro FAQ page entry about &lt;a href=&quot;https://reactjs.org/docs/faq-styling.html&quot;&gt;styling and CSS&lt;/a&gt; for React components, which links out to other relevant resources. The options essentially come down to one of the following:&lt;/p&gt;
