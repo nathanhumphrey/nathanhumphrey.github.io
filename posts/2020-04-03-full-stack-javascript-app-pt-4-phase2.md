@@ -278,16 +278,14 @@ export default (sequelize, DataTypes) => {
   };
   
   User.generatePasswordHash = password => {
-    return bcrypt.hash(password, 10);
+    return bcrypt.hashSync(password, 10);
   };
 
   User.authenticate = (email, password) => {
     return User.findOne({ where: { email } })
       .then(user => {
-        if (user) {
-          return bcrypt
-            .compare(password, user.passwordHash)
-            .then(result => (result ? user : null));
+        if (user && bcrypt.compareSync(password, user.passwordHash)) {
+          return user;
         }
 
         return null;
@@ -622,7 +620,7 @@ export const routes = [
           // create a new user with the password hash from bcrypt
           const user = await User.create(
             Object.assign(ctx.request.body, {
-              passwordHash: await User.generatePasswordHash(ctx.request.body.password)
+              passwordHash: User.generatePasswordHash(ctx.request.body.password)
             })
           );
 
