@@ -36,7 +36,9 @@ The build will be divided into a six-part series:
 1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1/) ⇐ you are here
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
 3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/)
-4. ~~Database access and authentication~~ (coming soon)
+4. Database access and authentication
+    1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
+    2. ~~Frontend implementation~~ (coming soon)
 5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
 

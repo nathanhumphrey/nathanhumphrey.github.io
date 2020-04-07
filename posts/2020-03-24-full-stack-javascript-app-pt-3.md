@@ -30,7 +30,9 @@ The build is divided into a six-part series:
 1. [Routes and pages](/posts/2020-02-06-full-stack-javascript-app-build-pt-1/)
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
 3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/) ⇐ you are here
-4. ~~Database access and authentication~~ (coming soon)
+4. Database access and authentication
+    1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
+    2. ~~Frontend implementation~~ (coming soon)
 5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
 
@@ -48,15 +50,15 @@ NOTE: I suggest following up on the links presented on the React site to get a d
 
 3. CSS in JS, for which, the [options are many](http://michelebertoli.github.io/css-in-js/)
 
-#### External CSS
+### External CSS
 
 Definitely the most straight forward of the three approaches (and the one that will be adopted for this walkthrough). Linking your application to external stylesheets allows you to define your CSS as you always have, and not have to worry about any complex configuration requirements (though, there is some setup required). The trick when working with linked external CSS is to have the CSS included somehow in your bundle/build process. We will implement our CSS solution so that it works with our webpack development setup, and leave production optimization for a later article.
 
-#### Inline CSS
+### Inline CSS
 
 Inlining CSS in your React components can also easily be done, but also spreads your CSS all over your application. Each component is responsible for its own styling, which makes it easy to know what rules apply to the component, but it also makes it difficult to manage global and shared styles too. You may find that some mix of both external global styles and inlined styles will work for you, but I strongly suggest avoiding inlining your CSS for improved performance and maintainability.
 
-#### CSS in JS options
+### CSS in JS options
 
 As the link above will show you, there are no shortage of CSS in JS options for you choose from. Typically, you will want to choose an option that best suits your needs (e.g. if you need server-side rendering, make sure the library you choose supports that). CSS in JS can offer several advantages over the two previous options mentioned, namely, code splitting and minimal CSS generation. This may be a good option for larger projects where the CSS may become very large or include rules that may not often be necessary. You will need to invest time in understanding how the library works and the best practices for your particular setup. Before choosing a CSS in JS option to move forward with, I recommend researching some reviews and tutorials to help you find one you feel comfortable using.
 
@@ -190,8 +192,8 @@ export default ctx => {
     <html>
       <head>
         <title>Isomorphic React App</title>
-        <script src="index.js" defer />
-        <link rel="stylesheet" href="main.css" />
+        <script src="/index.js" defer />
+        <link rel="stylesheet" href="/main.css" />
       </head>
       <body>
         <div id="app">
