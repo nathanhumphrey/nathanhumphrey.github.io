@@ -37,17 +37,17 @@ The build will be divided into a six-part series:
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
 3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/)
 4. Database access and authentication
-    1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
-    2. ~~Frontend implementation~~ (coming soon)
-5. ~~Protecting against CSRF attacks~~ (coming soon)
-6. ~~Production bundling~~ (coming soon)
+   1. [Backend implementation](/posts/2020-04-03-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
+   2. ~~Frontend implementation~~ (coming soon)
 
 I've also included some extra stretch goals as well (should the first six parts go smoothly):
 
+- Protecting against CSRF
 - Cache busting
 - Code splitting
 - Progressive enhancement
 - Testing
+- Production bundling
 
 <p class="info">
 NOTE: there are many articles published about how to implement most of the topics in the stretch goal list. Please feel free to use this project as a base for experimenting with other walkthroughs.
@@ -105,23 +105,23 @@ export const routes = [
   {
     path: "/",
     method: "get",
-    name: "home"
+    name: "home",
   },
   {
     path: "/signup",
     method: "get",
-    name: "signup"
+    name: "signup",
   },
   {
     path: "/users/:id",
     method: "get",
-    name: "userdetails"
+    name: "userdetails",
   },
   {
     path: "*",
     method: "get",
-    name: "nomatch"
-  }
+    name: "nomatch",
+  },
 ];
 ```
 
@@ -393,7 +393,7 @@ import App from "../app/App";
 
 const staticContext = {}; // used to store info about the render
 
-export default ctx => {
+export default (ctx) => {
   const renderComponent = (
     <html>
       <head>
@@ -501,7 +501,7 @@ import { routes } from "./routes";
 const App = () => {
   return (
     <Switch>
-      {routes.map(route => (
+      {routes.map((route) => (
         <Route key={route.page} path={route.path}>
           {/* 
             but what do we put in here now? Can't all be HomePage
@@ -529,24 +529,24 @@ export const routes = [
     method: "get",
     name: "home",
     page: "HomePage",
-    exact: true
+    exact: true,
   },
   {
     path: "/signup",
     method: "get",
-    name: "signup"
+    name: "signup",
   },
   {
     path: "/users/:id",
     method: "get",
-    name: "userdetails"
+    name: "userdetails",
   },
   {
     path: "*",
     method: "get",
     name: "nomatch",
-    page: "NoMatchPage"
-  }
+    page: "NoMatchPage",
+  },
 ];
 ```
 
@@ -561,7 +561,7 @@ import NoMatchPage from "./no-match";
 // create 'collection' of pages
 const pages = {
   HomePage: HomePage,
-  NoMatchPage: NoMatchPage
+  NoMatchPage: NoMatchPage,
 };
 
 export { pages };
@@ -585,8 +585,8 @@ const App = () => {
   return (
     <Switch>
       {routes
-        .filter(route => route.page)
-        .map(route => (
+        .filter((route) => route.page)
+        .map((route) => (
           <Route exact={route.exact} key={route.page} path={route.path}>
             {pages[route.page]}
           </Route>
@@ -615,4 +615,4 @@ I want to encourage you to review the code and concepts we've covered in this po
 
 ### Up Next
 
-In the next part of this series (coming soon), we'll build and style the necessary user interface components for this project. Specifically, We'll build a Nav component with links for navigating around the site as well as some components for viewing the user account details. A very simple user model will also be introduced to help us test our app. I hope you'll continue to join me on this learning journey.
+In the [part two](/posts/2020-02-12-full-stack-javascript-app-pt-2/) of this series, we'll build and style the necessary user interface components for this project. Specifically, We'll build a Nav component with links for navigating around the site as well as some components for viewing the user account details. A very simple user model will also be introduced to help us test our app. I hope you'll continue to join me on this learning journey.

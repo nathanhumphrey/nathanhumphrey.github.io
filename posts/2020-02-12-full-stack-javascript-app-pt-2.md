@@ -15,7 +15,7 @@ layout: layouts/post.njk
 
 ## Introduction
 
-Welcome to Part 2 of the Full Stack Application series. In this part of the series, we'll build and style a few simple components to allow us to fulfill the required use cases that were presented in [part 1](https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/). If you'd like to build the application but haven't worked through part 1 already, I would suggest you start there. If you'd just like some info on how to build and style components, then please, read on.
+Welcome to part 2 of the Full Stack Application series. In this part of the series, we'll build and style a few simple components to allow us to fulfill the required use cases that were presented in [part 1](https://nathanhumphrey.ca/posts/2020-02-06-full-stack-javascript-app-build-pt-1/). If you'd like to build the application but haven't worked through part 1 already, I would suggest you start there. If you'd just like some info on how to build and style components, then please, read on.
 
 **_The final project source can be found in this [GitHub repo](https://github.com/nathanhumphrey/simple-isomorphic-app/tree/components)_**
 
@@ -27,10 +27,8 @@ The build is divided into a six-part series:
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/) ⇐ you are here
 3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/)
 4. Database access and authentication
-    1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
-    2. ~~Frontend implementation~~ (coming soon)
-5. ~~Protecting against CSRF attacks~~ (coming soon)
-6. ~~Production bundling~~ (coming soon)
+   1. [Backend implementation](/posts/2020-04-03-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
+   2. ~~Frontend implementation~~ (coming soon)
 
 ## Application wireframes
 
@@ -201,7 +199,7 @@ const Page = ({ children }) => {
 };
 
 Page.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Page;
@@ -269,7 +267,7 @@ const PageNav = () => {
   return (
     <nav>
       <ul>
-        {routes.map(route => (
+        {routes.map((route) => (
           <li key={route.name}>
             <NavLink to={route.path}>{route.name}</NavLink>
           </li>
@@ -301,7 +299,7 @@ export const routes = [
     page: "HomePage",
     exact: true,
     navigation: true,
-    linkText: "Home"
+    linkText: "Home",
   },
   {
     path: "/signup",
@@ -309,7 +307,7 @@ export const routes = [
     name: "signup",
     page: "SignUpPage",
     navigation: true,
-    linkText: "Sign Up"
+    linkText: "Sign Up",
   },
   {
     path: "/users/:id",
@@ -317,14 +315,14 @@ export const routes = [
     name: "userdetails",
     page: "UserPage",
     navigation: true,
-    linkText: "Account"
+    linkText: "Account",
   },
   {
     path: "*",
     method: "get",
     name: "nomatch",
-    page: "NoMatchPage"
-  }
+    page: "NoMatchPage",
+  },
 ];
 ```
 
@@ -342,8 +340,8 @@ const PageNav = () => {
     <nav>
       <ul>
         {routes
-          .filter(route => route.navigation)
-          .map(route => (
+          .filter((route) => route.navigation)
+          .map((route) => (
             <li key={route.name}>
               <NavLink to={route.path}>{route.linkText}</NavLink>
             </li>
@@ -376,8 +374,8 @@ const PageNav = ({ routes, children }) => {
       {routes && (
         <ul>
           {routes
-            .filter(route => route.navigation)
-            .map(route => (
+            .filter((route) => route.navigation)
+            .map((route) => (
               <li key={route.name}>
                 <NavLink to={route.path}>{route.linkText}</NavLink>
               </li>
@@ -416,7 +414,7 @@ const Page = ({ children }) => {
 };
 
 Page.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Page;
@@ -456,7 +454,7 @@ const PageHeader = ({ children }) => {
 };
 
 PageHeader.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default PageHeader;
@@ -493,7 +491,7 @@ const Page = ({ children }) => {
 };
 
 Page.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Page;
@@ -541,7 +539,7 @@ const UserSignInForm = () => {
           id="user-email"
           name="userEmail"
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
         />
       </div>
       <div>
@@ -551,7 +549,7 @@ const UserSignInForm = () => {
           id="user-password"
           name="userPassword"
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
         />
       </div>
       <div>
@@ -597,7 +595,7 @@ const Page = ({ children }) => {
 };
 
 Page.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Page;
@@ -653,7 +651,7 @@ const UserSignUpForm = () => {
           id="user-first-name"
           name="userFirstName"
           value={firstName}
-          onChange={event => setFirstName(event.target.value)}
+          onChange={(event) => setFirstName(event.target.value)}
         />
       </div>
       <div>
@@ -663,7 +661,7 @@ const UserSignUpForm = () => {
           id="user-last-name"
           name="userLastName"
           value={lastName}
-          onChange={event => setLastName(event.target.value)}
+          onChange={(event) => setLastName(event.target.value)}
         />
       </div>
       <div>
@@ -673,7 +671,7 @@ const UserSignUpForm = () => {
           id="user-email"
           name="userEmail"
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
         />
       </div>
       <div>
@@ -683,7 +681,7 @@ const UserSignUpForm = () => {
           id="user-password"
           name="userPassword"
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
         />
       </div>
       <div>
@@ -693,7 +691,7 @@ const UserSignUpForm = () => {
           id="confirm-password"
           name="confirmPassword"
           value={confirmPassword}
-          onChange={event => setConfirmPassword(event.target.value)}
+          onChange={(event) => setConfirmPassword(event.target.value)}
         />
       </div>
       <div>
@@ -799,8 +797,8 @@ UserAccountView.propTypes = {
   user: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
-    email: PropTypes.string
-  }).isRequired
+    email: PropTypes.string,
+  }).isRequired,
 };
 
 export default UserAccountView;
@@ -828,7 +826,7 @@ const UserPage = () => {
   const user = {
     firstName: "Jane",
     lastName: "Doe",
-    email: "jdoe@example.com"
+    email: "jdoe@example.com",
   };
 
   return (
@@ -866,4 +864,4 @@ Okay, so in this part of the series, we created a few necessary components for t
 
 ## Up Next
 
-In Part 3 (coming soon), we'll look at various methods for styling the components we've just built here. From vanilla CSS to various CSS in JS options, we'll explore the pros and cons of these techniques before finally settling on one for the remainder of the build. I hope you'll continue to join me on this learning journey.
+In [part 3](/posts/2020-03-24-full-stack-javascript-app-pt-3), we'll look at various methods for styling the components we've just built here. From vanilla CSS to various CSS in JS options, we'll explore the pros and cons of these techniques before finally settling on one for the remainder of the build. I hope you'll continue to join me on this learning journey.

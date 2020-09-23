@@ -1,7 +1,7 @@
 ---
 title: Full Stack JavaScript Application Build Part 4 - Backend Database Access and Authentication
 description: Part 4 of a series about how to build a full stack JavaScript application. This article is about database access and user authentication on the backend. The frontend implementation of user auth will be covered in phase 2 of Part 4.
-abstract: 
+abstract:
 date: 2020-04-06 7:00:00.00
 tags:
   - software
@@ -32,8 +32,8 @@ The build is divided into a six-part series:
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
 3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/)
 4. Database access and authentication
-    1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
-    2. ~~Frontend implementation~~ (coming soon)
+   1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
+   2. ~~Frontend implementation~~ (coming soon)
 5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
 
@@ -61,14 +61,14 @@ Now we can configure Sequelize to create a scaffold for database access. Create 
 For our purposes, we won't be using any seeders, but we'll keep the configuration setting for reference purposes. All directories and files will be contained in the `src/db/` directory for the application.
 
 ```js
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  'config': path.resolve('src/db', 'database.js'),
-  'models-path': path.resolve('src/db', 'models'),
-  'seeders-path': path.resolve('src/db', 'seeders'),
-  'migrations-path': path.resolve('src/db', 'migrations')
-}
+  config: path.resolve("src/db", "database.js"),
+  "models-path": path.resolve("src/db", "models"),
+  "seeders-path": path.resolve("src/db", "seeders"),
+  "migrations-path": path.resolve("src/db", "migrations"),
+};
 ```
 
 <p class="caption">.sequelizerc - create the sequelize configuration file</p>
@@ -117,19 +117,19 @@ What you might notice is that `database.js` isn't JavaScript but rather JSON, wh
 The `database.js` file contains three pretty self-explanatory configuration options:
 
 - development - development database settings
-- test -  test database settings (should closely mirror your production database for final testing before deployment)
+- test - test database settings (should closely mirror your production database for final testing before deployment)
 - production - production database settings
 
 We won't worry about testing or deployment at this stage, so we'll update the file to support our development database only. Update `database.js` with the following code, which will define the dialect for SQLite and create the database file in a new `tmp/` directory. First, create the new `tmp/` under the project root and then update `database.js`:
 
 ```js
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   development: {
-    storage: path.resolve(__dirname, '../../tmp/test.sqlite'),
-    dialect: 'sqlite'
-  }
+    storage: path.resolve(__dirname, "../../tmp/test.sqlite"),
+    dialect: "sqlite",
+  },
 };
 ```
 
@@ -153,15 +153,19 @@ The previous command will create a new `user.js` file in `src/db/models/` and a 
 
 ```js
 // src/db/models/user.js
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    passwordHash: DataTypes.STRING
-  }, {});
-  User.associate = function(models) {
+  const User = sequelize.define(
+    "User",
+    {
+      firstName: DataTypes.STRING,
+      lastName: DataTypes.STRING,
+      email: DataTypes.STRING,
+      passwordHash: DataTypes.STRING,
+    },
+    {}
+  );
+  User.associate = function (models) {
     // associations can be defined here
   };
   return User;
@@ -172,41 +176,41 @@ module.exports = (sequelize, DataTypes) => {
 
 ```js
 // src/db/migrations/XXXXXXXXXXXXXX-create-user.js
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       passwordHash: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
-  }
+    return queryInterface.dropTable("Users");
+  },
 };
 ```
 
@@ -243,56 +247,55 @@ As previously mentioned, it's not good practice to store plain text passwords in
 NOTE: If you'd like to make use of async/await in place of the promise .then() call I've used below, you will need to make use of the <code>@babel/plugin-transform-runtime</code> <a href="https://babeljs.io/docs/en/babel-plugin-transform-runtime">plugin</a>.
 </p>
 
-
 ```js/1,7-12,15-23,32-46
 // src/db/models/user.js
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 
 export default (sequelize, DataTypes) => {
   const User = sequelize.define(
-    'User',
+    "User",
     {
       id: {
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
+        defaultValue: DataTypes.UUIDV4,
       },
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
       email: {
         allowNull: false,
         unique: true,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
       },
       passwordHash: {
         allowNull: false,
-        type: DataTypes.STRING
-      }
+        type: DataTypes.STRING,
+      },
     },
     {}
   );
-  
-  User.associate = models => {
+
+  User.associate = (models) => {
     // associations can be defined here
   };
-  
-  User.generatePasswordHash = password => {
+
+  User.generatePasswordHash = (password) => {
     return bcrypt.hash(password, 10);
   };
 
   User.authenticate = (email, password) => {
     return User.findOne({ where: { email } })
-      .then(user => {
+      .then((user) => {
         if (user) {
           return bcrypt
             .compare(password, user.passwordHash)
-            .then(result => (result ? user : null));
+            .then((result) => (result ? user : null));
         }
 
         return null;
       })
-      .catch(err => err);
+      .catch((err) => err);
   };
   return User;
 };
@@ -385,13 +388,13 @@ We are currently diverting all routes to the `renderReactApp` middleware, which 
 ```js
 export const routes = [
   {
-    path: '/some-path',
-    method: 'get',
+    path: "/some-path",
+    method: "get",
     middleware: [
-      ctx => {
+      (ctx) => {
         // required middleware code here
-      }
-    ]
+      },
+    ],
   },
 ];
 ```
@@ -452,6 +455,7 @@ Let's install the koa-flavoured package for passport to get started:
 <p><code class="term">npm i koa-passport</code></p>
 
 Next, we will create a new `src/server/user-auth.js` file to hold code related to authenticationg a user (i.e. the default passport stuff). A typical passport requires you to define three things:
+
 - a method for serializing a user (`passport.serializeUser()`)
 - a method for deserializing a user (`passport.deserializeUser()`)
 - a method for configuring a strategy (`passport.use()`)
@@ -459,8 +463,8 @@ Next, we will create a new `src/server/user-auth.js` file to hold code related t
 The starter code for `user-auth.js` follows:
 
 ```js
-import passport from 'koa-passport';
-import db from '../db/models.js';
+import passport from "koa-passport";
+import db from "../db/models.js";
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -468,10 +472,10 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   return db.User.findOne({ where: { id } })
-    .then(user => {
+    .then((user) => {
       done(null, user);
     })
-    .catch(err => {
+    .catch((err) => {
       done(err, null);
     });
 });
@@ -492,11 +496,11 @@ NOTE: In this application, I've decided to use the email field rather than the d
 </p>
 
 ```js/1,4,20-34
-import passport from 'koa-passport';
-import { Strategy as LocalStrategy } from 'passport-local';
-import db from '../db/models';
+import passport from "koa-passport";
+import { Strategy as LocalStrategy } from "passport-local";
+import db from "../db/models";
 
-const options = { usernameField: 'email' };
+const options = { usernameField: "email" };
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -504,10 +508,10 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   return db.User.findOne({ where: { id } })
-    .then(user => {
+    .then((user) => {
       done(null, user);
     })
-    .catch(err => {
+    .catch((err) => {
       done(err, null);
     });
 });
@@ -515,14 +519,14 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new LocalStrategy(options, (email, password, done) => {
     db.User.authenticate(email, password)
-      .then(user => {
+      .then((user) => {
         if (user === null) {
           return done(null, false);
         } else {
           return done(null, user);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         return done(err);
       });
   })
@@ -586,22 +590,22 @@ NOTE: as an exercise, after this update to support async/await, you could go bac
 </p>
 
 ```js/1-9
-require('@babel/register')({
+require("@babel/register")({
   presets: [
     [
-      '@babel/preset-env',
+      "@babel/preset-env",
       {
         targets: {
-          node: true
-        }
-      }
+          node: true,
+        },
+      },
     ],
-    '@babel/preset-react'
+    "@babel/preset-react",
   ],
-  ignore: ['node_modules']
+  ignore: ["node_modules"],
 });
 
-module.exports = require('./src/server/index.js');
+module.exports = require("./src/server/index.js");
 ```
 
 <p class="caption">index.js - updated @babel/preset-env with target: 'node' for async/await support</p>
@@ -609,37 +613,39 @@ module.exports = require('./src/server/index.js');
 Update our new `src/server/routes.js` file with the following routes:
 
 ```js
-import { User } from '../db/models';
+import { User } from "../db/models";
 export const routes = [
   {
-    path: '/signup',
-    method: 'post',
+    path: "/signup",
+    method: "post",
     middleware: [
-      async ctx => {
+      async (ctx) => {
         // TODO: validate incoming fields
         // TODO: then, check that the user doesn't already exist
         try {
           // create a new user with the password hash from bcrypt
           const user = await User.create(
             Object.assign(ctx.request.body, {
-              passwordHash: await User.generatePasswordHash(ctx.request.body.password)
+              passwordHash: await User.generatePasswordHash(
+                ctx.request.body.password
+              ),
             })
           );
 
           // only send back relevant details
           const { firstName, lastName, email } = user;
           ctx.status = 201; // created
-          ctx.type = 'application/json';
+          ctx.type = "application/json";
           ctx.body = JSON.stringify({ user: { firstName, lastName, email } });
         } catch (err) {
           ctx.status = 400;
           ctx.body = JSON.stringify({
-            error: `Could not create new user: ${err}`
+            error: `Could not create new user: ${err}`,
           });
         }
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
 ```
 
@@ -647,7 +653,7 @@ export const routes = [
 
 As you can see from the `TODO` comments, there are a few extras I've left as an exercise for you to work through, but this should get the job done for now. You can test that this route is working with a REST client (e.g. [Postman](https://www.postman.com/)) or even [curl](https://curl.haxx.se/) from the terminal. The following screenshot shows the result of calling this route initially for creation and then again showing the error that is generated due to the unique email constraint:
 
-![Result of posting to api/signup](/img/2020-04-04-full-stack-javascript-app-pt-4/testing-api-signup.png) 
+![Result of posting to api/signup](/img/2020-04-04-full-stack-javascript-app-pt-4/testing-api-signup.png)
 
 <p class="caption">using curl to post to the api/signup route and the user object response</p>
 
@@ -858,7 +864,7 @@ The following final screenshot demonstrates both an authenticated and matched us
 
 ## Conclusion
 
-If you made it this far, congratulations! It took a lot of work to get here, even though the libraries we've used did most of the heavy lifting. At this point, we've got a decent backend that's capable of accessing a database and authenticating users. 
+If you made it this far, congratulations! It took a lot of work to get here, even though the libraries we've used did most of the heavy lifting. At this point, we've got a decent backend that's capable of accessing a database and authenticating users.
 
 ### Next steps
 

@@ -15,7 +15,7 @@ layout: layouts/post.njk
 
 ## Introduction
 
-Okay, on to Part 3 of the Full Stack Application series. In Part 3, we'll look at various ways of styling the components that were created in [part 2](/posts/2020-02-12-full-stack-javascript-app-pt-2/). This post will be a little shorter than the previous two, but will provide some insight into the component styling options that are available.
+Okay, on to part 3 of the Full Stack Application series. In part 3, we'll look at various ways of styling the components that were created in [part 2](/posts/2020-02-12-full-stack-javascript-app-pt-2/). This post will be a little shorter than the previous two, but will provide some insight into the component styling options that are available.
 
 <p class="info">
 NOTE: emphasis here is placed on the <i>how</i> and not the <i>why</i>; what this means is that I will focus on how styling components can be accomplished but not so much on why the components should be styled in any particular way (e.g. responsive, UX, branding, etc.).
@@ -31,8 +31,8 @@ The build is divided into a six-part series:
 2. [Building components](/posts/2020-02-12-full-stack-javascript-app-pt-2/)
 3. [Styling components](/posts/2020-03-24-full-stack-javascript-app-pt-3/) ⇐ you are here
 4. Database access and authentication
-    1. [Backend implementation](/posts/2020-04-06-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
-    2. ~~Frontend implementation~~ (coming soon)
+   1. [Backend implementation](/posts/2020-04-03-full-stack-javascript-app-pt-4-phase1/) ⇐ you are here
+   2. ~~Frontend implementation~~ (coming soon)
 5. ~~Protecting against CSRF attacks~~ (coming soon)
 6. ~~Production bundling~~ (coming soon)
 
