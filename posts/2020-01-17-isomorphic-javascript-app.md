@@ -15,7 +15,7 @@ layout: layouts/post.njk
 
 ## But why?
 
-So, the other day, I had this great idea to explore the land of [isomorphic](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) JavaScript and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes you need to execute some custom business logic or work with a secret key that you don't want to be exposed on the client. For me, the goto choice for the front-end part of this project will be React (sorry Vue fans, but I haven't been converted ... yet), and you might think that Express would be my go-to for the server, but I've been working with Koa for some time now so that's what I've chosen as my backend for this project.
+So, the other day, I had this great idea to explore the land of [isomorphic JavaScript](https://en.wikipedia.org/wiki/Isomorphic_JavaScript) and server-side rendering (SSR), because why not? Building front-end applications that run entirely on the client is fun, but sometimes you need to execute some custom business logic or work with a secret key that you don't want to be exposed on the client. For me, the goto choice for the front-end part of this project will be React (sorry Vue fans, but I haven't been converted ... yet), and you might think that Express would be my go-to for the server, but I've been working with Koa for some time now so that's what I've chosen as my backend for this project.
 
 Alright, what will it take to pull this off?
 
@@ -93,7 +93,7 @@ const App = () => {
   return (
     <div>
       <h1>React Clicker Application</h1>
-      <button onClick={e => setClicks(clicks + 1)}>
+      <button onClick={(e) => setClicks(clicks + 1)}>
         Clicked {clicks} times
       </button>
     </div>
@@ -129,7 +129,7 @@ const app = new Koa();
 const compiler = webpack(config);
 
 // create koa webpack middleware
-koaWebpack({ compiler }).then(middleware => {
+koaWebpack({ compiler }).then((middleware) => {
   // use the koa middleware
   app.use(middleware);
   // use renderReactApp middleware (not yet implemented)
@@ -165,12 +165,12 @@ module.exports = {
   target: "web",
   entry: ["./src/client/index.js"],
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx"],
   },
   output: {
     path: path.resolve(__dirname, "static"),
     publicPath: "/",
-    filename: "index.js"
+    filename: "index.js",
   },
   module: {
     rules: [
@@ -180,12 +180,12 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        }
-      }
-    ]
-  }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+    ],
+  },
 };
 ```
 
@@ -204,7 +204,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import App from "../app/App";
 
-export default ctx => {
+export default (ctx) => {
   const renderComponent = (
     <html>
       <head>
@@ -280,7 +280,7 @@ Finally, put the package to use by creating an `index.js` file in the `project/`
 ```js
 require("@babel/register")({
   presets: ["@babel/preset-env", "@babel/preset-react"],
-  ignore: ["node_modules"]
+  ignore: ["node_modules"],
 });
 
 module.exports = require("./src/server/index.js");

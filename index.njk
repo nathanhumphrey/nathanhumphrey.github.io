@@ -1,8 +1,5 @@
 ---
 layout: layouts/home.njk
-eleventyNavigation:
-  key: Home
-  order: 1
 ---
 
 <section>
@@ -10,10 +7,10 @@ eleventyNavigation:
     <h1 class="title">{{ metadata.title }}</h1>
     <p class="description">{{ metadata.description }}</p>
   </div>
-  <h2>Latest Posts</h2>
+  <h2 class="visually-hidden">Latest Posts</h2>
   {% set isIndex = 'true' %}
   {% set postslist = collections.posts | head(-3) %} {% include "postslist.njk" %}
   <p class="tmpl-post">
-    <a href="{{ '/posts/' | url }}">View all posts</a>
+    <a href="{{ '/posts/' | url }}">See all posts</a>
   </p>
 </section>

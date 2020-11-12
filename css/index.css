@@ -5,7 +5,7 @@
   --highlight: #74c0fd;
   --saturated: #0071d7;
   --darkgray: #333333;
-  --lightgray: #dfdfdf;
+  --lightgray: #cccccc;
   --warn: #fff6c9;
   --white: #fff;
   --transparent: rgba(255, 255, 255, 0);
@@ -25,6 +25,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  font-weight: 200;
   color: var(--darkgray);
   background-color: var(--white);
 }
@@ -65,6 +66,7 @@ a[href]:hover {
 h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 main {
   padding: 2rem 1rem 1rem 1rem;
@@ -76,7 +78,8 @@ main h1,
 main h2,
 main h3,
 main h4 {
-  font-family: "Ubuntu", sans-serif;
+  /*font-family: "Ubuntu", sans-serif;*/
+  font-weight: 400;
 }
 table {
   margin: 1em 0;
@@ -156,7 +159,6 @@ pre {
 /* Header */
 .page-header {
   display: flex;
-  border-bottom: 1px dashed var(--secondary);
 }
 .page-header > .home {
   margin-left: 1rem; /* 16px /16 */
@@ -210,6 +212,8 @@ pre {
 }
 .postlist-date {
   word-spacing: -0.5px;
+  font-size: 0.75rem;
+  color: var(--secondary);
 }
 
 a[href].postlist-link,
@@ -222,26 +226,31 @@ a[href].postlist-link:visited {
 }
 a[href].postlist-link:hover {
   background-image: none;
+  color: var(--saturated);
 }
 .postlist-item {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px dashed var(--secondary);
 }
 .postlist-item:last-child {
   border-bottom: none;
 }
 .postlist-item .abstract {
   margin-top: 0.5rem;
+  color: var(--secondary);
 }
 .postlist-item a[href].postlist-link:not(:hover) {
   background-size: 0 0;
-  font-weight: bold;
 }
 .tmpl-home .postlist-item h2,
 .tmpl-home .postlist-item h3 {
   margin-bottom: 0.5rem;
   line-height: 1;
+  text-transform: uppercase;
+}
+
+.tmpl-home .postlist-item h3 {
+  font-size: 1.5rem;
 }
 
 /* Tags */
@@ -301,7 +310,7 @@ a[href].direct-link:focus:visited,
 .page-footer {
   margin-top: 1rem;
   padding: 2rem 0;
-  border-top: 1px dashed var(--secondary);
+  border-top: 1px dotted var(--lightgray);
   color: var(--secondary);
   font-size: 0.75rem;
   text-align: center;
@@ -310,7 +319,7 @@ a[href].direct-link:focus:visited,
 /* Home */
 .welcome {
   padding-bottom: 2rem;
-  border-bottom: 1px dashed var(--secondary);
+  border-bottom: 1px dotted var(--lightgray);
 }
 .welcome .title {
   margin: 0;
@@ -318,6 +327,7 @@ a[href].direct-link:focus:visited,
   font-family: Ubuntu, sans-serif;
   font-size: 10vw;
   font-weight: bold;
+  text-transform: lowercase;
 }
 .welcome .description {
   margin-top: 0.5rem;
@@ -374,7 +384,6 @@ div.about h2 {
 div.about img.me {
   display: block;
   width: 10rem;
-  margin: auto;
   border-radius: 50%;
 }
 blockquote {
