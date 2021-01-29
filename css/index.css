@@ -10,7 +10,6 @@
   --white: #fff;
   --transparent: rgba(255, 255, 255, 0);
 }
-/*--secondary: #8cb191;*/
 ::selection {
   background: var(--highlight); /* WebKit/Blink Browsers */
 }
@@ -24,8 +23,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  font-weight: 200;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 300;
   color: var(--darkgray);
   background-color: var(--white);
 }
@@ -54,9 +53,15 @@ a[href]:visited {
   background-size: 0.1rem 0.5rem;
   color: var(--darkgray);
   text-decoration: none;
+  /* transition: background-size 0.2s; */
+}
+/*
+main a[href],
+main a[href]:link,
+main a[href]:visited {
   transition: background-size 0.2s;
 }
-
+*/
 a[href]:hover {
   background-image: linear-gradient(
     to bottom,
@@ -79,7 +84,6 @@ main h1,
 main h2,
 main h3,
 main h4 {
-  /*font-family: "Ubuntu", sans-serif;*/
   font-weight: 400;
 }
 table {
@@ -200,6 +204,10 @@ pre {
   line-height: 4;
   text-transform: lowercase;
 }
+
+.nav-item a[href]:hover {
+  transition: background-size 0.2s;
+}
 .nav-item a[href]:not(:hover) {
   background-size: 0 0;
 }
@@ -212,9 +220,10 @@ pre {
   padding: 0;
 }
 .postlist-date {
+  display: block;
   word-spacing: -0.5px;
   font-size: 0.75rem;
-  color: var(--secondary);
+  color: var(--lightgray);
 }
 
 a[href].postlist-link,

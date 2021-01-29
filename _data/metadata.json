@@ -1,9 +1,9 @@
 {
   "title": "Nathan Humphrey",
   "url": "https://nathanhumphrey.ca/",
-  "description": "Software, education, and other stuff.",
+  "description": "Stuff that interests me",
   "feed": {
-    "subtitle": "Software, education, and other stuff.",
+    "subtitle": "Stuff that interests me",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "url": "https://nathanhumphrey.ca/feed/feed.xml",

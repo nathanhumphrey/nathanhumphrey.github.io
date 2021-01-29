@@ -61,7 +61,7 @@ The basic symbols used in BPMN are as follows:
 | ![Exclusive gateway symbol](/img/2021-01-11-bpmn-with-diagrams-net/exclusive-gateway.png) | **Exclusive gateway symbol** - represents a number of mutually exclusive flows based on some previously made decision |
 | ![Inclusive gateway symbol](/img/2021-01-11-bpmn-with-diagrams-net/inclusive-gateway.png) | **Inclusive gateway symbol** - represents the collection of different flows (possibly to due to a prior exclusive decision) back into a single flow |
 | ![Parallel gateway symbol](/img/2021-01-11-bpmn-with-diagrams-net/parallel-gateway.png) | **Parallel gateway symbol** - represents two or more flows that occur at the same time |
-| ![Pool symbol](/img/2021-01-11-bpmn-with-diagrams-net/pool%20%281%29.png) | **Pool symbol** - represents a participant in a collaboration, could be a specific entity or role (often used to represent a collection or a group e.g. Accounting, Purchasing, etc.) |
+| ![Pool symbol](/img/2021-01-11-bpmn-with-diagrams-net/pool.png) | **Pool symbol** - represents a participant in a collaboration, could be a specific entity or role (often used to represent a collection or a group e.g. Accounting, Purchasing, etc.) |
 | ![Lane symbol](/img/2021-01-11-bpmn-with-diagrams-net/lane.png) | **Lane symbol** - represents a partition in a process, typically within a pool (often used to represent roles or positions within a collection or group e.g. Accountant, Clerk, Admin, etc.) |
 | ![Pool with lanes](/img/2021-01-11-bpmn-with-diagrams-net/pool-lane.png) | **Pool with lanes** - a demonstration of how lanes can be combined within pools |
 
