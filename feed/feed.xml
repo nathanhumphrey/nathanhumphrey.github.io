@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Nathan Humphrey</title>
-	<subtitle>Software, education, and other stuff.</subtitle>
+	<subtitle>Stuff that interests me</subtitle>
 	<link href="https://nathanhumphrey.ca/feed/feed.xml" rel="self"/>
 	<link href="https://nathanhumphrey.ca/"/>
 	<updated>2021-01-11T07:00:00Z</updated>
@@ -373,7 +373,7 @@ to improve the business&#39; overall efficiency and productivity.&lt;/p&gt;
 &lt;td&gt;&lt;strong&gt;Parallel gateway symbol&lt;/strong&gt; - represents two or more flows that occur at the same time&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;img src=&quot;https://nathanhumphrey.ca/img/2021-01-11-bpmn-with-diagrams-net/pool%20%281%29.png&quot; alt=&quot;Pool symbol&quot; /&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;img src=&quot;https://nathanhumphrey.ca/img/2021-01-11-bpmn-with-diagrams-net/pool.png&quot; alt=&quot;Pool symbol&quot; /&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Pool symbol&lt;/strong&gt; - represents a participant in a collaboration, could be a specific entity or role (often used to represent a collection or a group e.g. Accounting, Purchasing, etc.)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
